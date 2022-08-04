@@ -2,8 +2,8 @@ import { css, customElement, LitElement, property } from 'lit-element';
 import { html } from 'lit';
 
 @customElement('start-component')
-export class StartComponent extends LitElement {
-  static styles = css`p { color: blue }`;
+export class BaseComponent extends LitElement {
+  static styles = css``;
 
   @property()
   name = 'start component';

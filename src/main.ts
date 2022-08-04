@@ -1,1 +1,1 @@
-export * from './components/my-element';
+export * from './components/card';
