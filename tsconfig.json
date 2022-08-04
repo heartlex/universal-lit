@@ -5,7 +5,7 @@
     "moduleResolution": "node",
     "lib": ["es2020", "dom"],
     "declaration": true,
-    "declarationDir": "build/types",
+    "declarationDir": "dist/js/types",
     "declarationMap": true,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,

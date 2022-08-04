@@ -18,7 +18,7 @@ console.log(`${devMode ? 'development' : 'production'} mode bundle`);
 export default {
   input: './src/main.ts',
   output: {
-    dir: './build',
+    dir: './dist/js',
     format: 'esm',
     sourcemap: false
   },
