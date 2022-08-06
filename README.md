@@ -1,6 +1,8 @@
-# LitElement TypeScript starter 
+# Universal lit 
 
-This project includes a sample component using LitElement with TypeScript.
+The main purpose of this project is to provide components stuck together to build complete pages to be imported in a legacy asp project based on Web forms.
+The idea is to wrap lit pages into asp master pages in order to keep separated the FE from the BE.
+Due to the nature of the project shadow dom is not necessary and to simplify the management of the dependencies and to keep them only in one place, i prefere to provide them by the resulting bundle itself (coping bootstrap approach to provide via cdn a js and a css)
 
 ## Setup
 
@@ -37,6 +39,10 @@ Tests can be run with the `test` script:
 ```bash
 npm test
 ```
+
+## Bundle testing
+
+Into test directory is kept test-playground.html where i test the behaviour of the components and the result of bundling (directly importing the js and css dependencies)
 
 ## Dev Server
 
