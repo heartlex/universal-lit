@@ -11,7 +11,8 @@ import replace from '@rollup/plugin-replace';
 import { copy } from '@web/rollup-plugin-copy';
 import typescript from 'rollup-plugin-typescript2';
 
-
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+console.log('-->', process.env.NODE_ENV);
 const devMode = (process.env.NODE_ENV === 'development');
 console.log(`${devMode ? 'development' : 'production'} mode bundle`);
 
@@ -20,7 +21,7 @@ export default {
   output: {
     dir: './dist/js',
     format: 'esm',
-    sourcemap: false
+    sourcemap: 'inline'
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
@@ -30,7 +31,7 @@ export default {
   plugins: [
     replace({'Reflect.decorate': 'undefined'}),
     // Resolve bare module specifiers to relative paths
-    resolve(),
+    resolve({browser: true}),
     // Minify JS
     terser({
       ecma: 2020,
@@ -39,8 +40,8 @@ export default {
         module: true,
         toplevel: true,
         unsafe_arrows: true,
-        drop_console: !devMode,
-        drop_debugger: !devMode
+        // drop_console: !devMode,
+        // drop_debugger: !devMode
       },
       output: {quote_style: 1}
     }),
