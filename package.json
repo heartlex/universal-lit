@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "Universal elements",
   "scripts": {
-    "build": "npm run clean && rollup -c",
-    "build:watch": "npm run clean && rollup -c --watch",
+    "build:dev": "npm run clean && rollup -c --watch --environment NODE_ENV:dev",
+    "build:prod": "npm run clean && rollup -c --environment NODE_ENV:prod",
     "clean": "rimraf my-element.{d.ts,d.ts.map,js,js.map} test/my-element.{d.ts,d.ts.map,js,js.map} test/my-element_test.{d.ts,d.ts.map,js,js.map}",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
@@ -48,6 +48,7 @@
     "bootstrap": "^5.2.0",
     "chai": "^4.3.6",
     "clean-css-cli": "^5.6.1",
+    "cross-env": "^7.0.3",
     "deepmerge": "^4.2.2",
     "es-dev-server": "^2.1.0",
     "eslint": "^8.21.0",
