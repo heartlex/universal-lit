@@ -1,5 +1,6 @@
-import { css, customElement, LitElement, property } from 'lit-element';
-import { html } from 'lit';
+import {property, customElement} from 'lit/decorators.js';
+import { html, css, LitElement } from 'lit';
+
 
 @customElement('start-component')
 export class BaseComponent extends LitElement {

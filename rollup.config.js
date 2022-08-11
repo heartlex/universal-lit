@@ -19,7 +19,9 @@ console.log('ENV: ', process.env.NODE_ENV);
 const devMode = (process.env.NODE_ENV === 'dev');
 
 let _plugins = [
-  replace({'Reflect.decorate': 'undefined'}),
+  replace({
+    'process.env.BASE_PATH': devMode?  JSON.stringify('localhost') : JSON.stringify('prod.com')
+  }),
   // Resolve bare module specifiers to relative paths
   resolve({browser: true}),
   typescript({
@@ -35,7 +37,7 @@ let _plugins = [
         path.resolve('node_modules')
       ],
       //minify
-      outputStyle: 'compressed',
+      outputStyle: devMode? '' : 'compressed',
       sourceMap: true,
       extract: true,
       extensions: ['.sass','.css'],
