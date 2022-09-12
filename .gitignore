@@ -1,6 +1,8 @@
 /node_modules/
 /lib/
 /dist/
+#contains files which describe the custom components
+/components
 
 .idea
 .vscode
