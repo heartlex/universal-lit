@@ -1,48 +1,95 @@
-# Universal lit 
+# Universal lit
 
-The main purpose of this project is to provide components stuck together to build complete pages to be imported in a legacy asp project based on Web forms.
-The idea is to wrap lit pages into asp master pages in order to keep separated the FE from the BE.
-Due to the nature of the project shadow dom is not necessary and to simplify the management of the dependencies and to keep them only in one place, i prefere to provide them by the resulting bundle itself (coping bootstrap approach to provide via cdn a js and a css)
+## On Boarding new Dev
+The main purpose of this project is to provide independent components to build complete pages to be imported in Universal.
+The goal is:
 
-## Setup
+1 - to wrap lit pages into asp master pages in order to keep separated logic between the FE and the BE.
 
-Install dependencies:
+2 - provide single elements to be exported into legacy Universal pages.
+Due to the nature of the project [shadow dom](https://web.dev/shadowdom-v1/) is not necessary.
+
+## Project setup
+[Install the latest LTS node version](https://nodejs.org/en/) if not already in your pc. Npm (node package manager) will be available after that.
+
+If you use VS Code, is highly reccomend the [lit-plugin extension](https://marketplace.visualstudio.com/items?itemName=runem.lit-plugin), which enables some extremely useful features for lit-html templates:
+- Syntax highlighting
+- Type-checking
+- Code completion
+- Hover-over docs
+- Jump to definition
+- Linting
+- Quick Fixes
+
+The project is setup to reccomend lit-plugin to VS Code users if they don't already have it installed.
+
+Inside the package.json file there are useful intels about the project itself. The most important ones are the sections **scripts, dependencies and devDependencies**.
+
+The first section contains all the available scripts for the project, for example to build it, to run it inside a dev server, to run tests...
+The second section shows the project dependencies which means all it needs to work correctly and what will be inserted in the final bundle.
+The third section contains all the utilities for the developer to work on the project. These kind of dependencies will **not** be in the final bundle.
+
+To download all the dependencies run
 
 ```bash
 npm i
 ```
 
-## Build
+This command creates the node_modules folder where all the deps are downloaded.
 
-This sample uses the TypeScript compiler to produce JavaScript that runs in modern browsers.
+## Build your first component
 
-To build the JavaScript version of your component:
+Inside src/components there is **base-component**, a starter component which can be copied and developed as a new one.
+Before doing so is important to understand the basis behind this library, so here some useful links to the doc.
+
+### [Define a new web component](https://lit.dev/docs/components/defining/)
+### [Render a new component](https://lit.dev/docs/components/rendering/) & [How the tamplate works](https://lit.dev/docs/templates/expressions)
+
+The template chapter of the lit doc explains the syntax and how to work with **child nodes, attributes, properties and event listeners**.
+Moreover it explains how to work with conditionals (ie if-else),lists of elements to be rendered and how to use loops
+
+### [Component props and state](https://lit.dev/docs/components/properties/)
+### [Lifecycles](https://lit.dev/docs/components/lifecycle/)
+
+About lifecycles is important to know that they are divided in 2 categories:
+- standard 
+- reactive
+
+In the first category there are the **constructor, connectedCallback and disconnectedCallback** fns.
+The first is used to initialize the component, the second is mainly used to handle external events and the last to remove 
+event handlers.
+
+In the second category there is the **requestUpdate** method which performs a component update when a prop changes or when 
+this method is explicitly called. There are other method other than that in the call stack to perform an update, but their
+implementation (to perform a custom behavior) is recommended only for advanced use cases (ie better performance when necessary).  
+
+### [Manage events: how to listen and dispatch events](https://lit.dev/docs/components/events/)
+### [How to use decorators](https://lit.dev/docs/components/decorators/)
+
+
+## Build the project
+
+To build the bundle for dev purpose:
 
 ```bash
-npm run build
+npm run build:dev
 ```
-
-To watch files and rebuild when the files are modified, run the following command in a separate shell:
-
+To build the bundle for prod purpose:
 ```bash
-npm run build:watch
+npm run build:prod
 ```
+Both the commands will generate a dist folder containing 2 other folders:
+- **css**: contains all the styles wrapped in the index.css file
+- **js**: contains the main.js file where all the web components are grouped, while types contains transpiling datas.
 
+The main difference is with the second command the final code will minified and the console and the debugger will be disabled.
 Both the TypeScript compiler and lit-analyzer are configured to be very strict. You may want to change `tsconfig.json` to make them less strict.
 
-## Testing
+## Automated Testing
 
-This sample uses Karma, Chai, Mocha, and the open-wc test helpers for testing. See the [open-wc testing documentation](https://open-wc.org/testing/testing.html) for more information.
+## Component testing
 
-Tests can be run with the `test` script:
-
-```bash
-npm test
-```
-
-## Bundle testing
-
-Into test directory is kept test-playground.html where i test the behaviour of the components and the result of bundling (directly importing the js and css dependencies)
+Into test directory is kept test-playground.html where can be tested the behaviour of the components and the result of bundling (directly importing the js and css dependencies)
 
 ## Dev Server
 
@@ -56,69 +103,16 @@ npm run serve
 
 There is a development HTML file located at `/dev/index.html` that you can view at http://localhost:8000/dev/index.html.
 
-## Editing
-
-If you use VS Code, we highly reccomend the [lit-plugin extension](https://marketplace.visualstudio.com/items?itemName=runem.lit-plugin), which enables some extremely useful features for lit-html templates:
-  - Syntax highlighting
-  - Type-checking
-  - Code completion
-  - Hover-over docs
-  - Jump to definition
-  - Linting
-  - Quick Fixes
-  
-  The project is setup to reccomend lit-plugin to VS Code users if they don't already have it installed.
-
 ## Linting
 
 Linting of TypeScript files is provided by [ESLint](eslint.org) and [TypeScript ESLint](https://github.com/typescript-eslint/typescript-eslint). In addition, [lit-analyzer](https://www.npmjs.com/package/lit-analyzer) is used to type-check and lint lit-html templates with the same engine and rules as lit-plugin.
 
 The rules are mostly the recommended rules from each project, but some have been turned off to make LitElement usage easier. The recommended rules are pretty strict, so you may want to relax them by editing `.eslintrc.json` and `tsconfig.json`.
 
-To lint the project run:
 
-```bash
-npm run lint
-```
+## Integrate with Universal
 
-## Formatting
+To simplify the management of the dependencies the resulting bundle provides the web components inside dist/js/main.js and
+the style inside dist/css/index.css.
 
-[Prettier](https://prettier.io/) is used for code formatting. It has been pre-configured according to the Polymer Project's style. You can change this in `.prettierrc.json`.
-
-Prettier has not been configured to run when commiting files, but this can be added with Husky and and `pretty-quick`. See the [prettier.io](https://prettier.io/) site for instructions.
-
-## Static Site
-
-This project includes a simple website generated with the [eleventy](11ty.dev) static site generator and the templates and pages in `/docs-src`. The site is generated to `/docs` and intended to be checked in so that GitHub pages can serve the site [from `/docs` on the master branch](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
-
-To enable the site go to the GitHub settings and change the GitHub Pages &quot;Source&quot; setting to &quot;master branch /docs folder&quot;.</p>
-
-To build the site, run:
-
-```bash
-npm run docs
-```
-
-To serve the site locally, run:
-
-```bash
-npm run docs:serve
-```
-
-To watch the site files, and re-build automatically, run:
-
-```bash
-npm run docs:watch
-```
-
-The site will usually be served at http://localhost:8000.
-
-## Bundling and minification
-
-This starter project doesn't include any build-time optimizations like bundling or minification. We recommend publishing components as unoptimized JavaScript modules, and performing build-time optimizations at the application level. This gives build tools the best chance to deduplicate code, remove dead code, and so on.
-
-For information on building application projects that include LitElement components, see [Build for production](https://lit-element.polymer-project.org/guide/build) on the LitElement site.
-
-## More information
-
-See [Get started](https://lit-element.polymer-project.org/guide/start) on the LitElement site for more information.
+Bootstrap JS and its dep Popper need to be imported separately.
