@@ -1,7 +1,7 @@
 import { html, LitElement } from 'lit';
 import { copyToClipboard } from '../utility/Utility';
 import { getBillingInfo } from '../api';
-import {property, customElement, state} from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 
 @customElement('card-component')
 export class Card extends LitElement {
@@ -39,8 +39,24 @@ export class Card extends LitElement {
     } catch (err) {
       if (err instanceof Error) console.log(err.message);
     }
+    this.addEventListener('clicked', function () {
+      alert('event caught');
+    })
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+    document.addEventListener('clicked', function () {
+      alert('event caught');
+    });
+  }
+
+  disconnectedCallback() {
+    document.removeEventListener('clicked', function () {
+      alert('event caught');
+    });
+    super.disconnectedCallback();
+  }
 
   //Render the component in the light dom
   createRenderRoot() {
@@ -48,71 +64,70 @@ export class Card extends LitElement {
   }
 
   render() {
-    if (this.isLoading) {
-      return html`
-        <div>
-          loading
-        </div>`;
-    } else {
-      return html`
-        <button class='btn btn-primary' @click='${() => console.log(5)}'>ciao</button>
-        <div class='card  my-3'>
-          <div class='card-body'>
-            <div class='d-flex justify-content-between'>
-              <div class='card-title fw-bold fs-5 text-uppercase'>${this.cardTitle}</div>
-              <div class='dropdown'>
-                <button id='dropdownBillingInfoButton' data-bs-toggle='dropdown' aria-expanded='false'
-                        type='button' class='btn btn-xs icon btn-outline-primary'>
-                  <i class='far fa-ellipsis-h' aria-hidden='true'></i>
-                </button>
-                <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='dropdownBillingInfoButton' style=''>
-                  <li><a class='dropdown-item' href='#'>Edit billing info</a></li>
-                </ul>
-              </div>
+    return html`
+      <button class='btn btn-primary' @click='${() => console.log(5)}'>ciao</button>
+      <div class='card  my-3'>
+        <div class='card-body'>
+          <div class='d-flex justify-content-between'>
+            <div class='card-title fw-bold fs-5 text-uppercase'>${this.cardTitle}</div>
+            <div class='dropdown'>
+              <button id='dropdownBillingInfoButton' data-bs-toggle='dropdown' aria-expanded='false'
+                      type='button' class='btn btn-xs icon btn-outline-primary'>
+                <i class='far fa-ellipsis-h' aria-hidden='true'></i>
+              </button>
+              <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='dropdownBillingInfoButton' style=''>
+                <li><a class='dropdown-item' href='#'>Edit billing info</a></li>
+              </ul>
             </div>
-            ${this.companyDataList?.map(
-              (companyData, index) =>
-                html`
-                  <div class='d-flex align-items-center mb-2'>
-                    <div class='d-flex'>
-                      <strong class='me-1'>Address:</strong>
-                      <span id='companyAddress${index}'
-                            class='me-3'>${companyData.name} <br> ${companyData.companyAddress.address}  , ${companyData.companyAddress.city} <br> ${companyData.companyAddress.postalCode}
+          </div>
+          ${this.companyDataList?.map(
+            (companyData, index) =>
+              html`
+                <div class='d-flex align-items-center mb-2'>
+                  <div class='d-flex'>
+                    <strong class='me-1'>Address:</strong>
+                    <span id='companyAddress${index}'
+                          class='me-3'>${companyData.name} <br> ${companyData.companyAddress.address}  , ${companyData.companyAddress.city} <br> ${companyData.companyAddress.postalCode}
                       , ${companyData.companyAddress.state} <br>${companyData.vatNumber} 
                     </span>
-                    </div>
-                    <i class='far fa-copy icon-click' @click='${() => copyToClipboard(this, "companyAddress" + index)}'
-                       aria-hidden='true'></i>
                   </div>
-                  <div class='card-text mb-2'>
-                    <strong class='me-1'>Iban:</strong>
-                    <span id='iban${index}' class='me-3'>aabbcc12345</span>
-                    <i class='far fa-copy' @click='${() => copyToClipboard(this, "iban" + index)}'
-                       aria-hidden='true'></i>
-                  </div>
-                  <div class='card-text mb-2'>
-                    <strong class='me-1'>Swift code:</strong>
-                    <span id='swift${index}' class='me-3'>swift123456</span>
-                    <i class='far fa-copy' @click='${() => copyToClipboard(this, "swift" + index)}'
-                       aria-hidden='true'></i>
-                  </div>
-                  <div class='card-text mb-2'>
-                    <strong class='me-1'>Paypal:</strong>
-                    <span id='paypal${index}' class='me-3'> paypal@paypal.com</span>
-                    <i class='far fa-copy' @click='${() => copyToClipboard(this, "paypal" + index)}'
-                       aria-hidden='true'></i>
-                  </div>
-                  <div class='card-text flex-wrap'>
-                    <strong class='me-1'>Finance contact:</strong>
-                    <span id='financeContact${index}' class='me-3'> paypal@paypal.com</span>
-                    <i class='far fa-copy' @click='${() => copyToClipboard(this, "financeContact" + index)}'
-                       aria-hidden='true'></i>
-                  </div>
-                `
-            )}
-          </div>
+                  <i class='far fa-copy icon-click' @click='${() => copyToClipboard(this, "companyAddress" + index)}'
+                     aria-hidden='true'></i>
+                </div>
+                <div class='card-text mb-2'>
+                  <strong class='me-1'>Iban:</strong>
+                  <span id='iban${index}' class='me-3'>aabbcc12345</span>
+                  <i class='far fa-copy' @click='${() => copyToClipboard(this, "iban" + index)}'
+                     aria-hidden='true'></i>
+                </div>
+                <div class='card-text mb-2'>
+                  <strong class='me-1'>Swift code:</strong>
+                  <span id='swift${index}' class='me-3'>swift123456</span>
+                  <i class='far fa-copy' @click='${() => copyToClipboard(this, "swift" + index)}'
+                     aria-hidden='true'></i>
+                </div>
+                <div class='card-text mb-2'>
+                  <strong class='me-1'>Paypal:</strong>
+                  <span id='paypal${index}' class='me-3'> paypal@paypal.com</span>
+                  <i class='far fa-copy' @click='${() => copyToClipboard(this, "paypal" + index)}'
+                     aria-hidden='true'></i>
+                </div>
+                <div class='card-text flex-wrap'>
+                  <strong class='me-1'>Finance contact:</strong>
+                  <span id='financeContact${index}' class='me-3'> paypal@paypal.com</span>
+                  <i class='far fa-copy' @click='${() => copyToClipboard(this, "financeContact" + index)}'
+                     aria-hidden='true'></i>
+                </div>
+              `
+          )}
         </div>
-      `;
-    }
+      </div>
+    `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'card-component': Card;
   }
 }
