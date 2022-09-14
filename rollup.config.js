@@ -14,12 +14,15 @@ import scss from "rollup-plugin-scss";
 import postcss from "postcss";
 import autoprefixer from "autoprefixer";
 import * as path from "path";
+import minifyHTML from 'rollup-plugin-minify-html-literals';
+
 
 console.log('ENV: ', process.env.NODE_ENV);
 const devMode = (process.env.NODE_ENV === 'dev');
 
 let _plugins = [
   replace({
+    preventAssignment: true,
     'process.env.BASE_PATH': devMode?  JSON.stringify('localhost') : JSON.stringify('prod.com')
   }),
   // Resolve bare module specifiers to relative paths
@@ -36,7 +39,7 @@ let _plugins = [
       includePaths: [
         path.resolve('node_modules')
       ],
-      //minify
+      //minify css
       outputStyle: devMode? '' : 'compressed',
       sourceMap: true,
       extract: true,
@@ -56,6 +59,8 @@ let _plugins = [
 
 if (!devMode) {
   _plugins.push(
+    // Minify HTML template literals
+    minifyHTML(),
     // Minify JS
     terser({
       ecma: 2020,

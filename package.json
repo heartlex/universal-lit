@@ -2,6 +2,7 @@
   "name": "universal-lit",
   "version": "0.0.0",
   "description": "Universal elements",
+  "private": true,
   "scripts": {
     "build:dev": "npm run clean && rollup -c --watch --environment NODE_ENV:dev",
     "build:prod": "npm run clean && rollup -c --environment NODE_ENV:prod",
@@ -10,7 +11,7 @@
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
     "format": "prettier src/* --write",
-    "serve": "es-dev-server --node-resolve --watch",
+    "serve": "es-dev-server --node-resolve --watch --open",
     "analyze": "wca analyze \"src/**/*.{js,ts}\" --outDir components --format json"
   },
   "keywords": [
