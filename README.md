@@ -40,6 +40,7 @@ This command creates the node_modules folder where all the deps are downloaded.
 ## Build your first component
 
 Inside src/components there is **base-component**, a starter component which can be copied and developed as a new one.
+Remember to export your components from **src/main.ts** to make it available.
 Before doing so it's important to understand the basis behind this library, so here some useful links to the doc.
 
 ### [Define a new web component](https://lit.dev/docs/components/defining/)
