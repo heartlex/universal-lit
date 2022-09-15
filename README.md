@@ -53,10 +53,16 @@ Basically add the **@customElement** decorator on a class which extends LitEleme
 Moreover it explains how to work with conditionals (ie if-else),lists of elements to be rendered and how to use loops.
 
 - To use JS inside the template put it in **${}**
+    > `<h1>Hello ${name}</h1>`
 - To pass datas in an attribute is possible to do something like this: **class=${stringOfClasses}**
+    > `<div class=${highlightClass}></div>`
 - To set boolean attributes use **?** before it. Ie: **?hidden=${!show}**
+    > `<div ?hidden=${!show}></div>`
 - To set a property use **.** before it. Ie: **.value=${value}**
+    > `<input .value=${value}>`
 - Event listeners work with **@** before them. Ie: **@click=${this._clickHandler}**
+    > `<button @click=${this._clickHandler}>Go</button>`
+
 
 ### [Component attributes and state](https://lit.dev/docs/components/properties/)
 
