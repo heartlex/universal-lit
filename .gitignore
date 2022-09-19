@@ -6,3 +6,7 @@
 
 .idea
 .vscode
+
+src/service/api
+
+yarn-error.log

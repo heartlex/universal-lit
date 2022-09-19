@@ -11,8 +11,9 @@
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
     "format": "prettier src/* --write",
-    "serve": "es-dev-server --node-resolve --watch --open",
-    "analyze": "wca analyze \"src/**/*.{js,ts}\" --outDir components --format json"
+    "serve": "es-dev-server --node-resolve --watch --open --cors true",
+    "analyze": "wca analyze \"src/**/*.{js,ts}\" --outDir components --format json",
+    "scaffolding-pet": "rimraf src/service/api && openapi-generator-cli generate -i src/service/pet-store.yaml -g typescript-fetch -o src/service/api/"
   },
   "keywords": [
     "web-components",
@@ -22,10 +23,10 @@
   "author": "MAF",
   "license": "MIT",
   "dependencies": {
-    "lit": "^2.2.8",
-    "lit-element": "^3.2.2"
+    "lit": "^2.2.8"
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.5.2",
     "@rollup/plugin-replace": "^4.0.0",
     "@types/bootstrap": "^5.2.1",
     "@types/chai": "^4.3.1",
@@ -49,6 +50,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.77.2",
     "rollup-plugin-filesize": "^9.1.2",
+    "rollup-plugin-minify-html-literals": "^1.2.6",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-summary": "^1.4.3",
