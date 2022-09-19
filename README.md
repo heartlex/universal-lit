@@ -90,9 +90,25 @@ Import them here and remember to import the compiled index.min.css inside the pr
 
 ### Api Integration
 
-Use [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) to connect to the web APIs.
-Inside src/service create specific files for api groups where containing the respective clients.
-When the yml will be ready, use an automation to create and delivery the clients inside the app
+Install openapi generator (-g option means globally, so this cli will be)
+```bash 
+npm install @openapitools/openapi-generator-cli -g
+```
+and check with
+```bash 
+openapi-generator-cli version
+```
+
+Put the yaml representing the web APIs interface inside **src/service** and add a script inside the _package.json_ to 
+generate the clients to invoke web Apis. In the project an example is provived, the yaml name is pet-store.yaml hwile the script name is _scaffolding-pet_.
+
+Type:
+```bash 
+npm run scaffolding-pet
+```
+This command deletes the api folder and regenerate it. The generated clients use [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) to connect to the web APIs.
+Inside the **base-component** There's an example on how to use them.
+
 
 ## Build the project
 
