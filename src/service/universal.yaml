@@ -1,0 +1,5838 @@
+openapi: 3.0.1
+info:
+  title: Universal.Api
+  version: '1.0'
+paths:
+  "/v1/campaigns":
+    get:
+      tags:
+        - Campaign
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Campaign"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Campaign"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Campaign"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+    post:
+      tags:
+        - Campaign
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CampaignDto"
+      responses:
+        '201':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/v1/campaigns/{id}":
+    get:
+      tags:
+        - Campaign
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Campaign"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Campaign"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Campaign"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/v1/campaigns/{id}/publishers":
+    get:
+      tags:
+        - Campaign
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Campaign"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Campaign"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Campaign"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/v1/cost":
+    get:
+      tags:
+        - Cost
+      parameters:
+        - name: StartDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: EndDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: CampaignId
+          in: query
+          schema:
+            type: string
+            format: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/CostDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/CostDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/CostDto"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/v1/reports/campaigns":
+    get:
+      tags:
+        - Report
+      parameters:
+        - name: PublisherId
+          in: query
+          schema:
+            type: string
+            format: string
+        - name: AdvertiserId
+          in: query
+          schema:
+            type: string
+            format: string
+        - name: Sort
+          in: query
+          schema:
+            type: string
+        - name: FromDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: ToDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: Limit
+          in: query
+          schema:
+            maximum: 2147483647
+            minimum: 0
+            type: integer
+            format: int32
+        - name: Offset
+          in: query
+          schema:
+            maximum: 2147483647
+            minimum: 0
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StatsDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StatsDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StatsDto"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/v1/reports/publishers":
+    get:
+      tags:
+        - Report
+      parameters:
+        - name: CampaignId
+          in: query
+          schema:
+            type: string
+            format: string
+        - name: AdvertiserId
+          in: query
+          schema:
+            type: string
+            format: string
+        - name: Sort
+          in: query
+          schema:
+            type: string
+        - name: FromDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: ToDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: Limit
+          in: query
+          schema:
+            maximum: 2147483647
+            minimum: 0
+            type: integer
+            format: int32
+        - name: Offset
+          in: query
+          schema:
+            maximum: 2147483647
+            minimum: 0
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StatsDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StatsDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StatsDto"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/v1/reports/creatives":
+    get:
+      tags:
+        - Report
+      parameters:
+        - name: CampaignId
+          in: query
+          schema:
+            type: string
+            format: string
+        - name: PublisherId
+          in: query
+          schema:
+            type: string
+            format: string
+        - name: AdvertiserId
+          in: query
+          schema:
+            type: string
+            format: string
+        - name: Sort
+          in: query
+          schema:
+            type: string
+        - name: FromDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: ToDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: Limit
+          in: query
+          schema:
+            maximum: 2147483647
+            minimum: 0
+            type: integer
+            format: int32
+        - name: Offset
+          in: query
+          schema:
+            maximum: 2147483647
+            minimum: 0
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StatsDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StatsDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StatsDto"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+components:
+  schemas:
+    AccountManagersAdvertisers:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        accountManagerId:
+          type: string
+          nullable: true
+        advertiserId:
+          type: integer
+          format: int32
+          nullable: true
+        accountManager:
+          "$ref": "#/components/schemas/AspNetUsers"
+        advertiser:
+          "$ref": "#/components/schemas/Advertiser"
+      additionalProperties: false
+    AccountManagerTeam:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        code:
+          type: string
+          nullable: true
+        aspNetUsers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetUsers"
+          nullable: true
+      additionalProperties: false
+    Advertiser:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        domain:
+          type: string
+          nullable: true
+        offerwall:
+          type: string
+          nullable: true
+        clickUrl:
+          type: string
+          nullable: true
+        hasApi:
+          type: boolean
+          nullable: true
+        isIosigned:
+          type: boolean
+          nullable: true
+        iourl:
+          type: string
+          nullable: true
+        jsonConf:
+          type: string
+          nullable: true
+        numberOfOffers:
+          type: integer
+          format: int32
+          nullable: true
+        billingInfoId:
+          type: integer
+          format: int32
+          nullable: true
+        hideFromOfferwall:
+          type: boolean
+          nullable: true
+        daysForFinalNumbers:
+          type: integer
+          format: int32
+          nullable: true
+        impressionRequired:
+          type: boolean
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        lastUserId:
+          type: string
+          nullable: true
+        accountManagerId:
+          type: string
+          nullable: true
+        note:
+          type: string
+          nullable: true
+        shouldImportAll:
+          type: boolean
+          nullable: true
+        affidability:
+          type: integer
+          format: int32
+          nullable: true
+        resetCapTimezone:
+          type: integer
+          format: int32
+          nullable: true
+        accountManager:
+          "$ref": "#/components/schemas/AspNetUsers"
+        billingInfo:
+          "$ref": "#/components/schemas/BillingInfo"
+        lastUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        accountManagersAdvertisers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AccountManagersAdvertisers"
+          nullable: true
+        advertiserSettings:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AdvertiserSettings"
+          nullable: true
+        affsiteBlacklist:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AffsiteBlacklist"
+          nullable: true
+        aspNetUsers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetUsers"
+          nullable: true
+        campaign:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Campaign"
+          nullable: true
+        campaignsImportLog:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsImportLog"
+          nullable: true
+        campaignsMonthlyPublisherReport:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsMonthlyPublisherReport"
+          nullable: true
+        monthlyRevenueReport:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MonthlyRevenueReport"
+          nullable: true
+        billingInfoNavigation:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BillingInfo"
+          nullable: true
+        publisher:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Publisher"
+          nullable: true
+        tag:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Tag"
+          nullable: true
+      additionalProperties: false
+    AdvertiserSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        advertiserId:
+          type: integer
+          format: int32
+          nullable: true
+        testLinkMinuteInterval:
+          type: integer
+          format: int32
+          nullable: true
+        testLinkStartTime:
+          type: string
+          format: date-time
+          nullable: true
+        maxTestLinkError:
+          type: integer
+          format: int32
+          nullable: true
+        enableConversionSecurityCheck:
+          type: boolean
+          nullable: true
+        maximumDebit:
+          type: integer
+          format: int32
+          nullable: true
+        advertiser:
+          "$ref": "#/components/schemas/Advertiser"
+      additionalProperties: false
+    AffsiteBlacklist:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        affSiteId:
+          type: string
+          nullable: true
+        advertiserId:
+          type: integer
+          format: int32
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        lastUserId:
+          type: string
+          nullable: true
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        advertiser:
+          "$ref": "#/components/schemas/Advertiser"
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        lastUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    AppCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        contentTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        contentType:
+          "$ref": "#/components/schemas/ContentType"
+      additionalProperties: false
+    Applicazioni:
+      type: object
+      properties:
+        appId:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        categoryId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: string
+          nullable: true
+        releaseDate:
+          type: string
+          format: date-time
+          nullable: true
+        imageId:
+          type: string
+          nullable: true
+        id:
+          type: integer
+          format: int32
+        email:
+          type: string
+          nullable: true
+        unpublished:
+          type: integer
+          format: int32
+          nullable: true
+        screenshot1:
+          type: string
+          nullable: true
+        screenshot2:
+          type: string
+          nullable: true
+        screenshot3:
+          type: string
+          nullable: true
+        packageId:
+          type: string
+          nullable: true
+        category:
+          "$ref": "#/components/schemas/Categoria"
+        updates:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Updates"
+          nullable: true
+        architettura:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Architettura"
+          nullable: true
+      additionalProperties: false
+    ApplicazioniW10:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        packageId:
+          type: string
+          nullable: true
+        appId:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        id:
+          type: integer
+          format: int32
+        updatesApplicazioniW10:
+          type: array
+          items:
+            "$ref": "#/components/schemas/UpdatesApplicazioniW10"
+          nullable: true
+      additionalProperties: false
+    Architettura:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        codice:
+          type: string
+          nullable: true
+        applicazione:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Applicazioni"
+          nullable: true
+      additionalProperties: false
+    AspNetPermissions:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        code:
+          type: string
+          nullable: true
+        descrizione:
+          type: string
+          nullable: true
+        role:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetRoles"
+          nullable: true
+      additionalProperties: false
+    AspNetRoles:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        menu:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Menu"
+          nullable: true
+        permission:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetPermissions"
+          nullable: true
+        user:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetUsers"
+          nullable: true
+      additionalProperties: false
+    AspNetUserAttachment:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        accountManagerId:
+          type: string
+          nullable: true
+        uploadDatetime:
+          type: string
+          format: date-time
+          nullable: true
+        attachmentUrl:
+          type: string
+          nullable: true
+        aspNetUserId:
+          type: string
+          nullable: true
+        accountManager:
+          "$ref": "#/components/schemas/AspNetUsers"
+        aspNetUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+      additionalProperties: false
+    AspNetUserClaims:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        userId:
+          type: string
+          nullable: true
+        claimType:
+          type: string
+          nullable: true
+        claimValue:
+          type: string
+          nullable: true
+        user:
+          "$ref": "#/components/schemas/AspNetUsers"
+      additionalProperties: false
+    AspNetUserLogins:
+      type: object
+      properties:
+        loginProvider:
+          type: string
+          nullable: true
+        providerKey:
+          type: string
+          nullable: true
+        userId:
+          type: string
+          nullable: true
+        user:
+          "$ref": "#/components/schemas/AspNetUsers"
+      additionalProperties: false
+    AspNetUsers:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        emailConfirmed:
+          type: boolean
+        passwordHash:
+          type: string
+          nullable: true
+        securityStamp:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        phoneNumberConfirmed:
+          type: boolean
+        twoFactorEnabled:
+          type: boolean
+        lockoutEndDateUtc:
+          type: string
+          format: date-time
+          nullable: true
+        lockoutEnabled:
+          type: boolean
+        accessFailedCount:
+          type: integer
+          format: int32
+        userName:
+          type: string
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        advertiserId:
+          type: integer
+          format: int32
+          nullable: true
+        apiKey:
+          type: string
+          nullable: true
+        insertDate:
+          type: string
+          format: date-time
+          nullable: true
+        skypeId:
+          type: string
+          nullable: true
+        referral:
+          type: string
+          nullable: true
+        slackId:
+          type: string
+          nullable: true
+        passwordHash1:
+          type: string
+          nullable: true
+        passwordHash2:
+          type: string
+          nullable: true
+        passwordHash3:
+          type: string
+          nullable: true
+        passwordUpdateDate:
+          type: string
+          format: date-time
+          nullable: true
+        teamId:
+          type: integer
+          format: int32
+          nullable: true
+        hidden:
+          type: boolean
+          nullable: true
+        advertiser:
+          "$ref": "#/components/schemas/Advertiser"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+        team:
+          "$ref": "#/components/schemas/AccountManagerTeam"
+        accountManagersAdvertisers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AccountManagersAdvertisers"
+          nullable: true
+        advertiserAccountManager:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Advertiser"
+          nullable: true
+        advertiserLastUser:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Advertiser"
+          nullable: true
+        affsiteBlacklist:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AffsiteBlacklist"
+          nullable: true
+        aspNetUserAttachmentAccountManager:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetUserAttachment"
+          nullable: true
+        aspNetUserAttachmentAspNetUser:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetUserAttachment"
+          nullable: true
+        aspNetUserClaims:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetUserClaims"
+          nullable: true
+        aspNetUserLogins:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetUserLogins"
+          nullable: true
+        aspNetUsersCustomization:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetUsersCustomization"
+          nullable: true
+        balance:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Balance"
+          nullable: true
+        bundleGroupSettingsAspNetUser:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleGroupSettings"
+          nullable: true
+        bundleGroupSettingsLastUser:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleGroupSettings"
+          nullable: true
+        bundleName:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleName"
+          nullable: true
+        campaign:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Campaign"
+          nullable: true
+        campaignInstall:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignInstall"
+          nullable: true
+        campaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishers"
+          nullable: true
+        mulistSettingAspNetUser:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MulistSetting"
+          nullable: true
+        mulistSettingLastUser:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MulistSetting"
+          nullable: true
+        paymentIntent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PaymentIntent"
+          nullable: true
+        publisherAccountManager:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Publisher"
+          nullable: true
+        publisherLastUser:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Publisher"
+          nullable: true
+        publishersOptimizerView:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PublishersOptimizerView"
+          nullable: true
+        tracker:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Tracker"
+          nullable: true
+        role:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetRoles"
+          nullable: true
+      additionalProperties: false
+    AspNetUsersCustomization:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        userId:
+          type: string
+          nullable: true
+        configurationJson:
+          type: string
+          nullable: true
+        page:
+          type: string
+          nullable: true
+        user:
+          "$ref": "#/components/schemas/AspNetUsers"
+      additionalProperties: false
+    AutomationPipeline:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        aspNetUserId:
+          type: string
+          nullable: true
+        insertDateTime:
+          type: string
+          format: date-time
+          nullable: true
+        updateDateTime:
+          type: string
+          format: date-time
+          nullable: true
+        lastStartDateTime:
+          type: string
+          format: date-time
+          nullable: true
+        lastEndDateTime:
+          type: string
+          format: date-time
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        cron:
+          type: string
+          nullable: true
+        workflowId:
+          type: string
+          nullable: true
+        nextScheduleDateTime:
+          type: string
+          format: date-time
+          nullable: true
+        nextScheduledSequenceNumber:
+          type: integer
+          format: int64
+          nullable: true
+        timeout:
+          type: integer
+          format: int32
+          nullable: true
+        statusId:
+          type: integer
+          format: int32
+          nullable: true
+        isSystem:
+          type: boolean
+          nullable: true
+        automationPipelinesActions:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AutomationPipelinesActions"
+          nullable: true
+        pipelinesCampaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PipelinesCampaignsPublishers"
+          nullable: true
+      additionalProperties: false
+    AutomationPipelinesActions:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        automationPipelineId:
+          type: integer
+          format: int32
+          nullable: true
+        pipelineActionId:
+          type: integer
+          format: int32
+          nullable: true
+        jsonOptions:
+          type: string
+          nullable: true
+        orderId:
+          type: integer
+          format: int32
+          nullable: true
+        automationPipeline:
+          "$ref": "#/components/schemas/AutomationPipeline"
+        pipelineAction:
+          "$ref": "#/components/schemas/PipelineAction"
+      additionalProperties: false
+    Balance:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        amount:
+          type: number
+          format: double
+          nullable: true
+        aspUserId:
+          type: string
+          nullable: true
+        paymentTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        currentBalance:
+          type: number
+          format: double
+          nullable: true
+        note:
+          type: string
+          nullable: true
+        paymentTransactionId:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        advertiserId:
+          type: integer
+          format: int32
+          nullable: true
+        billingInfoId:
+          type: integer
+          format: int32
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        referenceBalance:
+          type: number
+          format: double
+          nullable: true
+        aspUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        billingInfo:
+          "$ref": "#/components/schemas/BillingInfo"
+        paymentType:
+          "$ref": "#/components/schemas/PaymentType"
+      additionalProperties: false
+    BillingInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        surname:
+          type: string
+          nullable: true
+        companyName:
+          type: string
+          nullable: true
+        vat:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        postalCode:
+          type: string
+          nullable: true
+        iban:
+          type: string
+          nullable: true
+        swift:
+          type: string
+          nullable: true
+        paypal:
+          type: string
+          nullable: true
+        nin:
+          type: string
+          nullable: true
+        countryId:
+          type: integer
+          format: int32
+          nullable: true
+        financeContact:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        net:
+          type: integer
+          format: int32
+          nullable: true
+        vattax:
+          type: integer
+          format: int32
+          nullable: true
+        extra:
+          type: string
+          nullable: true
+        languageId:
+          type: integer
+          format: int32
+          nullable: true
+        currencyId:
+          type: integer
+          format: int32
+          nullable: true
+        minimumCommitment:
+          type: integer
+          format: int32
+          nullable: true
+        paymentMethod:
+          type: integer
+          format: int32
+          nullable: true
+        revolutCounterpartyId:
+          type: string
+          nullable: true
+        profileType:
+          type: string
+          nullable: true
+        payoneer:
+          type: string
+          nullable: true
+        routingNumber:
+          type: string
+          nullable: true
+        country:
+          "$ref": "#/components/schemas/Country"
+        currency:
+          "$ref": "#/components/schemas/Currency"
+        language:
+          "$ref": "#/components/schemas/Lingua"
+        advertiser:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Advertiser"
+          nullable: true
+        balance:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Balance"
+          nullable: true
+        financeDocument:
+          type: array
+          items:
+            "$ref": "#/components/schemas/FinanceDocument"
+          nullable: true
+        paymentIntent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PaymentIntent"
+          nullable: true
+        publisher:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Publisher"
+          nullable: true
+        advertiserNavigation:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Advertiser"
+          nullable: true
+        publisherNavigation:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Publisher"
+          nullable: true
+      additionalProperties: false
+    BundleGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        typeId:
+          type: integer
+          format: int32
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        type:
+          "$ref": "#/components/schemas/BundleGroupType"
+        bundleGroupSettings:
+          "$ref": "#/components/schemas/BundleGroupSettings"
+        bundleGroupCampaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleGroupCampaignsPublishers"
+          nullable: true
+        bundleName:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleName"
+          nullable: true
+        s2sorder:
+          type: array
+          items:
+            "$ref": "#/components/schemas/S2sorder"
+          nullable: true
+      additionalProperties: false
+    BundleGroupCampaignsPublishers:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        bundleGroupId:
+          type: integer
+          format: int32
+          nullable: true
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        bundleGroup:
+          "$ref": "#/components/schemas/BundleGroup"
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    BundleGroupSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        groupId:
+          type: integer
+          format: int32
+          nullable: true
+        targetCampaignId:
+          type: integer
+          format: int32
+          nullable: true
+        targetPublisherId:
+          type: integer
+          format: int32
+          nullable: true
+        refreshTime:
+          type: integer
+          format: int32
+          nullable: true
+        size:
+          type: integer
+          format: int32
+          nullable: true
+        countryId:
+          type: integer
+          format: int32
+          nullable: true
+        contentTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        isActive:
+          type: boolean
+          nullable: true
+        aspNetUserId:
+          type: string
+          nullable: true
+        lastUpdateDate:
+          type: string
+          format: date-time
+          nullable: true
+        lastUserId:
+          type: string
+          nullable: true
+        refreshRatio:
+          type: number
+          format: double
+          nullable: true
+        itemLength:
+          type: integer
+          format: int32
+          nullable: true
+        aspNetUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        contentType:
+          "$ref": "#/components/schemas/ContentType"
+        country:
+          "$ref": "#/components/schemas/Country"
+        group:
+          "$ref": "#/components/schemas/BundleGroup"
+        lastUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        targetCampaign:
+          "$ref": "#/components/schemas/Campaign"
+        targetPublisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    BundleGroupType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        bundleGroup:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleGroup"
+          nullable: true
+      additionalProperties: false
+    BundleName:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        secondaryName:
+          type: string
+          nullable: true
+        frequency:
+          type: integer
+          format: int32
+          nullable: true
+        groupId:
+          type: integer
+          format: int32
+          nullable: true
+        lastUpdateDate:
+          type: string
+          format: date-time
+          nullable: true
+        lastUserId:
+          type: string
+          nullable: true
+        group:
+          "$ref": "#/components/schemas/BundleGroup"
+        lastUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+      additionalProperties: false
+    Campaign:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+        endDate:
+          type: string
+          format: date-time
+          nullable: true
+        trackingUrl:
+          type: string
+          nullable: true
+        trackingPixelUrl:
+          type: string
+          nullable: true
+        dailyCap:
+          type: integer
+          format: int32
+          nullable: true
+        amount:
+          type: integer
+          format: int32
+          nullable: true
+        coupon:
+          type: string
+          nullable: true
+        campaignTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+        contentTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        campaignStatusId:
+          type: integer
+          format: int32
+          nullable: true
+        imageUrl:
+          type: string
+          nullable: true
+        packageId:
+          type: string
+          nullable: true
+        prezzo:
+          type: number
+          format: double
+          nullable: true
+        prezzoVecchio:
+          type: number
+          format: double
+          nullable: true
+        ratingAverage:
+          type: number
+          format: double
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        featured:
+          type: integer
+          format: int32
+          nullable: true
+        insertDate:
+          type: string
+          format: date-time
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        linguaId:
+          type: integer
+          format: int32
+          nullable: true
+        minOsversion:
+          type: integer
+          format: int32
+          nullable: true
+        color:
+          type: string
+          nullable: true
+        priority:
+          type: integer
+          format: int32
+          nullable: true
+        advertiserId:
+          type: integer
+          format: int32
+          nullable: true
+        advertiserCampaignId:
+          type: string
+          nullable: true
+        payout:
+          type: number
+          format: double
+          nullable: true
+        trackerId:
+          type: integer
+          format: int32
+          nullable: true
+        categoria:
+          type: string
+          nullable: true
+        dayOfUser:
+          type: integer
+          format: int32
+          nullable: true
+        campaignServiceTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherPayout:
+          type: number
+          format: double
+          nullable: true
+        isInOfferwall:
+          type: boolean
+          nullable: true
+        currencyId:
+          type: integer
+          format: int32
+          nullable: true
+        secondaryPackageId:
+          type: string
+          nullable: true
+        incent:
+          type: boolean
+          nullable: true
+        totalBudget:
+          type: number
+          format: double
+          nullable: true
+        dailyBudget:
+          type: number
+          format: double
+          nullable: true
+        note:
+          type: string
+          nullable: true
+        lastUserId:
+          type: string
+          nullable: true
+        customClickParams:
+          type: string
+          nullable: true
+        previewUrl:
+          type: string
+          nullable: true
+        advertiser:
+          "$ref": "#/components/schemas/Advertiser"
+        campaignServiceType:
+          "$ref": "#/components/schemas/CampaignServiceType"
+        campaignStatus:
+          "$ref": "#/components/schemas/CampaignStatus"
+        campaignType:
+          "$ref": "#/components/schemas/CampaignType"
+        contentType:
+          "$ref": "#/components/schemas/ContentType"
+        currency:
+          "$ref": "#/components/schemas/Currency"
+        lastUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        lingua:
+          "$ref": "#/components/schemas/Lingua"
+        tracker:
+          "$ref": "#/components/schemas/Tracker"
+        affsiteBlacklist:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AffsiteBlacklist"
+          nullable: true
+        bundleGroupCampaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleGroupCampaignsPublishers"
+          nullable: true
+        bundleGroupSettings:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleGroupSettings"
+          nullable: true
+        campaignAnalytic:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignAnalytic"
+          nullable: true
+        campaignConfiguredEvent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignConfiguredEvent"
+          nullable: true
+        campaignConversionEvent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignConversionEvent"
+          nullable: true
+        campaignInstall:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignInstall"
+          nullable: true
+        campaignMinuteAnalytic:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignMinuteAnalytic"
+          nullable: true
+        campaignNote:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignNote"
+          nullable: true
+        campaignPerformanceOverview:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignPerformanceOverview"
+          nullable: true
+        campaignSettings:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignSettings"
+          nullable: true
+        campaignUpdateHistory:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignUpdateHistory"
+          nullable: true
+        campaignsDailyClicks:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsDailyClicks"
+          nullable: true
+        campaignsDailyEvents:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsDailyEvents"
+          nullable: true
+        campaignsDailyImpressions:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsDailyImpressions"
+          nullable: true
+        campaignsDailyRevenueCost:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsDailyRevenueCost"
+          nullable: true
+        campaignsImages:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsImages"
+          nullable: true
+        campaignsMetadata:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsMetadata"
+          nullable: true
+        campaignsMonthlyPublisherReport:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsMonthlyPublisherReport"
+          nullable: true
+        campaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishers"
+          nullable: true
+        campaignsPublishersBudget:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishersBudget"
+          nullable: true
+        campaignsPublishersCap:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishersCap"
+          nullable: true
+        campaignsPublishersDayparting:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishersDayparting"
+          nullable: true
+        campaignsPublishersHourlyRevenueCost:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishersHourlyRevenueCost"
+          nullable: true
+        campaignsPublishersSettings:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishersSettings"
+          nullable: true
+        kpicampaignsPublishersStatus:
+          type: array
+          items:
+            "$ref": "#/components/schemas/KpicampaignsPublishersStatus"
+          nullable: true
+        mulistCampaigns:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MulistCampaigns"
+          nullable: true
+        pipelinesCampaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PipelinesCampaignsPublishers"
+          nullable: true
+        s2sorder:
+          type: array
+          items:
+            "$ref": "#/components/schemas/S2sorder"
+          nullable: true
+        testLink:
+          type: array
+          items:
+            "$ref": "#/components/schemas/TestLink"
+          nullable: true
+        country:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Country"
+          nullable: true
+        tag:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Tag"
+          nullable: true
+      additionalProperties: false
+    CampaignAnalytic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        impressions:
+          type: integer
+          format: int32
+          nullable: true
+        clicks:
+          type: integer
+          format: int32
+          nullable: true
+        install:
+          type: integer
+          format: int32
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        hour:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        statusCode:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    CampaignConfiguredEvent:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        eventId:
+          type: string
+          nullable: true
+        eventName:
+          type: string
+          nullable: true
+        amount:
+          type: number
+          format: double
+          nullable: true
+        typeId:
+          type: integer
+          format: int32
+          nullable: true
+        attributionWindow:
+          type: integer
+          format: int32
+          nullable: true
+        maxCount:
+          type: integer
+          format: int32
+          nullable: true
+        actionTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        isMaster:
+          type: boolean
+          nullable: true
+        isDisabled:
+          type: boolean
+          nullable: true
+        actionType:
+          "$ref": "#/components/schemas/CampaignConversionsEventActionType"
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        type:
+          "$ref": "#/components/schemas/EventType"
+        campaignConversionEvent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignConversionEvent"
+          nullable: true
+        publishersEvents:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PublishersEvents"
+          nullable: true
+        statMetricMetricAconfiguredEvent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StatMetric"
+          nullable: true
+        statMetricMetricBconfiguredEvent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StatMetric"
+          nullable: true
+      additionalProperties: false
+    CampaignConversionEvent:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        clickId:
+          type: string
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        requestIp:
+          type: string
+          nullable: true
+        affSite:
+          type: string
+          nullable: true
+        value:
+          type: number
+          format: double
+          nullable: true
+        configuredEventId:
+          type: integer
+          format: int32
+          nullable: true
+        firstConversionId:
+          type: integer
+          format: int32
+          nullable: true
+        eventHubId:
+          type: integer
+          format: int64
+          nullable: true
+        eventHubPartition:
+          type: string
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        configuredEvent:
+          "$ref": "#/components/schemas/CampaignConfiguredEvent"
+        firstConversion:
+          "$ref": "#/components/schemas/CampaignInstall"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+        campaignConversionEventDetail:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignConversionEventDetail"
+          nullable: true
+        campaignInstall:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignInstall"
+          nullable: true
+      additionalProperties: false
+    CampaignConversionEventDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        creativeId:
+          type: string
+          nullable: true
+        placementId:
+          type: string
+          nullable: true
+        conversionEventId:
+          type: integer
+          format: int32
+          nullable: true
+        conversionEvent:
+          "$ref": "#/components/schemas/CampaignConversionEvent"
+      additionalProperties: false
+    CampaignConversionsEventActionType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        campaignConfiguredEvent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignConfiguredEvent"
+          nullable: true
+      additionalProperties: false
+    CampaignConversionStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        campaignInstall:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignInstall"
+          nullable: true
+      additionalProperties: false
+    CampaignDto:
+      required:
+        - dailyBudget
+        - name
+        - payout
+        - startDate
+      type: object
+      properties:
+        name:
+          type: string
+          format: string
+        payout:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+          format: double
+        startDate:
+          type: string
+          format: date
+        dailyBudget:
+          maximum: 2147483647
+          minimum: 0
+          type: number
+          format: double
+      additionalProperties: false
+    CampaignInstall:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        ip:
+          type: string
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        advertiserId:
+          type: string
+          nullable: true
+        payout:
+          type: number
+          format: double
+          nullable: true
+        payoutPublisher:
+          type: number
+          format: double
+          nullable: true
+        clickId:
+          type: string
+          nullable: true
+        invalid:
+          type: boolean
+          nullable: true
+        requestIp:
+          type: string
+          nullable: true
+        affSite:
+          type: string
+          nullable: true
+        affClickId:
+          type: string
+          nullable: true
+        invalidationNote:
+          type: string
+          nullable: true
+        invalidationDate:
+          type: string
+          format: date-time
+          nullable: true
+        clickDatetime:
+          type: string
+          format: date-time
+          nullable: true
+        ttihours:
+          type: integer
+          format: int32
+          nullable: true
+        topDomain:
+          type: string
+          nullable: true
+        statusId:
+          type: integer
+          format: int32
+          nullable: true
+        risk:
+          type: integer
+          format: int32
+          nullable: true
+        reasonCode:
+          type: string
+          nullable: true
+        lastUserId:
+          type: string
+          nullable: true
+        confirmedPayout:
+          type: number
+          format: double
+          nullable: true
+        confirmedPayoutPublisher:
+          type: number
+          format: double
+          nullable: true
+        conversionEventId:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        conversionEvent:
+          "$ref": "#/components/schemas/CampaignConversionEvent"
+        lastUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+        status:
+          "$ref": "#/components/schemas/CampaignConversionStatus"
+        campaignInstallDetail:
+          "$ref": "#/components/schemas/CampaignInstallDetail"
+        campaignConversionEvent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignConversionEvent"
+          nullable: true
+      additionalProperties: false
+    CampaignInstallDetail:
+      type: object
+      properties:
+        installId:
+          type: integer
+          format: int32
+        siteId:
+          type: string
+          nullable: true
+        installDate:
+          type: string
+          format: date-time
+          nullable: true
+        osVersion:
+          type: string
+          nullable: true
+        countryId:
+          type: integer
+          format: int32
+          nullable: true
+        creativeId:
+          type: string
+          nullable: true
+        placementId:
+          type: string
+          nullable: true
+        country:
+          "$ref": "#/components/schemas/Country"
+        install:
+          "$ref": "#/components/schemas/CampaignInstall"
+      additionalProperties: false
+    CampaignMinuteAnalytic:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        clicks:
+          type: integer
+          format: int32
+          nullable: true
+        time:
+          type: string
+          format: date-time
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    CampaignNote:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        amid:
+          type: string
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        noteText:
+          type: string
+          nullable: true
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+      additionalProperties: false
+    CampaignPerformanceOverview:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        crtoday:
+          type: number
+          format: double
+          nullable: true
+        croverall:
+          type: number
+          format: double
+          nullable: true
+        cpctoday:
+          type: number
+          format: double
+          nullable: true
+        cpcoverall:
+          type: number
+          format: double
+          nullable: true
+        cpmtoday:
+          type: number
+          format: double
+          nullable: true
+        cpmoverall:
+          type: number
+          format: double
+          nullable: true
+        lastUpdateDate:
+          type: string
+          format: date-time
+          nullable: true
+        dailyImpressions:
+          type: integer
+          format: int32
+          nullable: true
+        overallImpressions:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+      additionalProperties: false
+    CampaignRejectionType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        reasonCode:
+          type: string
+          nullable: true
+        campaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishers"
+          nullable: true
+      additionalProperties: false
+    CampaignsDailyClicks:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        count:
+          type: integer
+          format: int32
+          nullable: true
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        grossCount:
+          type: integer
+          format: int32
+          nullable: true
+        outOfTargetCount:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    CampaignsDailyEvents:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        eventName:
+          type: string
+          nullable: true
+        eventCount:
+          type: integer
+          format: int32
+          nullable: true
+        eventRevenue:
+          type: number
+          format: double
+          nullable: true
+        eventCost:
+          type: number
+          format: double
+          nullable: true
+        eventValueSum:
+          type: number
+          format: double
+          nullable: true
+        eventValueAvg:
+          type: number
+          format: double
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    CampaignsDailyImpressions:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        count:
+          type: integer
+          format: int32
+          nullable: true
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    CampaignsDailyRevenueCost:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        conversions:
+          type: integer
+          format: int32
+          nullable: true
+        scrubbedConversions:
+          type: integer
+          format: int32
+          nullable: true
+        events:
+          type: integer
+          format: int32
+          nullable: true
+        scrubbedEvents:
+          type: integer
+          format: int32
+          nullable: true
+        fraudCount:
+          type: integer
+          format: int32
+          nullable: true
+        amount:
+          type: number
+          format: double
+          nullable: true
+        scrub:
+          type: number
+          format: double
+          nullable: true
+        amountPublisher:
+          type: number
+          format: double
+          nullable: true
+        scrubPublisher:
+          type: number
+          format: double
+          nullable: true
+        tticount:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    CampaignServiceType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        campaign:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Campaign"
+          nullable: true
+      additionalProperties: false
+    CampaignSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        testLinkMinuteInterval:
+          type: integer
+          format: int32
+          nullable: true
+        testLinkStartTime:
+          type: string
+          format: date-time
+          nullable: true
+        maxTestLinkError:
+          type: integer
+          format: int32
+          nullable: true
+        ignoreFraudCheck:
+          type: boolean
+          nullable: true
+        skanId:
+          type: integer
+          format: int32
+          nullable: true
+        skanNetworkId:
+          type: string
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+      additionalProperties: false
+    CampaignsImages:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        imageId:
+          type: integer
+          format: int32
+          nullable: true
+        linguaId:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        image:
+          "$ref": "#/components/schemas/ImageContentOfTheDay"
+        lingua:
+          "$ref": "#/components/schemas/Lingua"
+      additionalProperties: false
+    CampaignsImportLog:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        advertiserId:
+          type: integer
+          format: int32
+          nullable: true
+        raw:
+          type: string
+          nullable: true
+        offers:
+          type: string
+          nullable: true
+        totalOffers:
+          type: integer
+          format: int32
+          nullable: true
+        validOffers:
+          type: integer
+          format: int32
+          nullable: true
+        invalidOffers:
+          type: integer
+          format: int32
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        prevoiusDate:
+          type: string
+          format: date-time
+          nullable: true
+        consecutiveDailyErrors:
+          type: integer
+          format: int32
+          nullable: true
+        lastErrorDate:
+          type: string
+          format: date-time
+          nullable: true
+        errorNotificationDate:
+          type: string
+          format: date-time
+          nullable: true
+        advertiser:
+          "$ref": "#/components/schemas/Advertiser"
+      additionalProperties: false
+    CampaignsMetadata:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        metadataId:
+          type: integer
+          format: int32
+          nullable: true
+        linguaId:
+          type: integer
+          format: int32
+          nullable: true
+        countryId:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        country:
+          "$ref": "#/components/schemas/Country"
+        lingua:
+          "$ref": "#/components/schemas/Lingua"
+        metadata:
+          "$ref": "#/components/schemas/MetadataContentOfTheDay"
+      additionalProperties: false
+    CampaignsMonthlyPublisherReport:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        conversions:
+          type: integer
+          format: int32
+          nullable: true
+        amount:
+          type: number
+          format: double
+          nullable: true
+        amountPublisher:
+          type: number
+          format: double
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        deduction:
+          type: number
+          format: double
+          nullable: true
+        advertiserId:
+          type: integer
+          format: int32
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        deductionPublisher:
+          type: number
+          format: double
+          nullable: true
+        note:
+          type: string
+          nullable: true
+        statusAdmin:
+          type: integer
+          format: int32
+          nullable: true
+        pendingAmount:
+          type: number
+          format: double
+          nullable: true
+        pendingAmountPublisher:
+          type: number
+          format: double
+          nullable: true
+        advertiser:
+          "$ref": "#/components/schemas/Advertiser"
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+        statusAdminNavigation:
+          "$ref": "#/components/schemas/ReportAdminStatus"
+        statusNavigation:
+          "$ref": "#/components/schemas/ReportPublisherStatus"
+        reportProof:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ReportProof"
+          nullable: true
+      additionalProperties: false
+    CampaignsPublishers:
+      type: object
+      properties:
+        publisherId:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+        statusId:
+          type: integer
+          format: int32
+          nullable: true
+        payout:
+          type: number
+          format: double
+          nullable: true
+        currencyId:
+          type: integer
+          format: int32
+          nullable: true
+        shouldNotifyByEmail:
+          type: boolean
+          nullable: true
+        insertDate:
+          type: string
+          format: date-time
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        dailyBudget:
+          type: number
+          format: double
+          nullable: true
+        totalBudget:
+          type: number
+          format: double
+          nullable: true
+        rejectionTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        lastUserId:
+          type: string
+          nullable: true
+        maxCr:
+          type: number
+          format: double
+          nullable: true
+        minCr:
+          type: number
+          format: double
+          nullable: true
+        customParams:
+          type: string
+          nullable: true
+        affidability:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        currency:
+          "$ref": "#/components/schemas/Currency"
+        lastUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+        rejectionType:
+          "$ref": "#/components/schemas/CampaignRejectionType"
+        status:
+          "$ref": "#/components/schemas/CampaignStatus"
+      additionalProperties: false
+    CampaignsPublishersBudget:
+      type: object
+      properties:
+        campaignId:
+          type: integer
+          format: int32
+        publisherId:
+          type: integer
+          format: int32
+        dailyCost:
+          type: number
+          format: double
+          nullable: true
+        totalCost:
+          type: number
+          format: double
+          nullable: true
+        paymentModelId:
+          type: integer
+          format: int32
+          nullable: true
+        isPrivate:
+          type: boolean
+          nullable: true
+        dailyCount:
+          type: integer
+          format: int32
+          nullable: true
+        totalCount:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    CampaignsPublishersCap:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        hourlyCap:
+          type: integer
+          format: int32
+          nullable: true
+        dailyCap:
+          type: integer
+          format: int32
+          nullable: true
+        monthlyCap:
+          type: integer
+          format: int32
+          nullable: true
+        totalCap:
+          type: integer
+          format: int32
+          nullable: true
+        typeId:
+          type: integer
+          format: int32
+          nullable: true
+        configuredEventId:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    CampaignsPublishersDayparting:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        dayOfWeek:
+          type: integer
+          format: int32
+          nullable: true
+        hour:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    CampaignsPublishersHourlyRevenueCost:
+      type: object
+      properties:
+        campaignId:
+          type: integer
+          format: int32
+        publisherId:
+          type: integer
+          format: int32
+        bid:
+          type: number
+          format: double
+        date:
+          type: string
+          format: date-time
+        hour:
+          type: integer
+          format: int32
+        amount:
+          type: number
+          format: double
+          nullable: true
+        amountPublisher:
+          type: number
+          format: double
+          nullable: true
+        insertDate:
+          type: string
+          format: date-time
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        paymentModelId:
+          type: integer
+          format: int32
+        advertiserCount:
+          type: integer
+          format: int32
+          nullable: true
+        publisherCount:
+          type: integer
+          format: int32
+          nullable: true
+        confirmedAmount:
+          type: number
+          format: double
+          nullable: true
+        confirmedAmountPublisher:
+          type: number
+          format: double
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        paymentModel:
+          "$ref": "#/components/schemas/CampaignType"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    CampaignsPublishersSettings:
+      type: object
+      properties:
+        campaignId:
+          type: integer
+          format: int32
+        publisherId:
+          type: integer
+          format: int32
+        targetCr:
+          type: number
+          format: double
+          nullable: true
+        isIncent:
+          type: boolean
+          nullable: true
+        userFlow:
+          type: string
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    CampaignStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        nome:
+          type: string
+          nullable: true
+        codice:
+          type: string
+          nullable: true
+        campaign:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Campaign"
+          nullable: true
+        campaignUpdateHistory:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignUpdateHistory"
+          nullable: true
+        campaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishers"
+          nullable: true
+      additionalProperties: false
+    CampaignType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        codice:
+          type: string
+          nullable: true
+        descrizione:
+          type: string
+          nullable: true
+        campaign:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Campaign"
+          nullable: true
+        campaignsPublishersHourlyRevenueCost:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishersHourlyRevenueCost"
+          nullable: true
+      additionalProperties: false
+    CampaignUpdateHistory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        statusId:
+          type: integer
+          format: int32
+          nullable: true
+        oldPrice:
+          type: number
+          format: double
+          nullable: true
+        newPrice:
+          type: number
+          format: double
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        status:
+          "$ref": "#/components/schemas/CampaignStatus"
+      additionalProperties: false
+    Categoria:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        codice:
+          type: string
+          nullable: true
+        categoriaPadreId:
+          type: integer
+          format: int32
+          nullable: true
+        nome:
+          type: string
+          nullable: true
+        categoriaPadre:
+          "$ref": "#/components/schemas/Categoria"
+        applicazioni:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Applicazioni"
+          nullable: true
+        inverseCategoriaPadre:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Categoria"
+          nullable: true
+      additionalProperties: false
+    ContentOfTheDay:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        data:
+          type: string
+          format: date-time
+        contentTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        packageId:
+          type: string
+          nullable: true
+        secondaryPackageId:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        minOsversion:
+          type: integer
+          format: int32
+          nullable: true
+        statusId:
+          type: integer
+          format: int32
+          nullable: true
+        contentType:
+          "$ref": "#/components/schemas/ContentType"
+        status:
+          "$ref": "#/components/schemas/ContentOfTheDayStatus"
+        imageContentOfTheDay:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ImageContentOfTheDay"
+          nullable: true
+        metadataContentOfTheDay:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MetadataContentOfTheDay"
+          nullable: true
+        country:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Country"
+          nullable: true
+      additionalProperties: false
+    ContentOfTheDayStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        codice:
+          type: string
+          nullable: true
+        contentOfTheDay:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ContentOfTheDay"
+          nullable: true
+      additionalProperties: false
+    ContentType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        codice:
+          type: string
+          nullable: true
+        descrizione:
+          type: string
+          nullable: true
+        appCategory:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AppCategory"
+          nullable: true
+        bundleGroupSettings:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleGroupSettings"
+          nullable: true
+        campaign:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Campaign"
+          nullable: true
+        contentOfTheDay:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ContentOfTheDay"
+          nullable: true
+        news:
+          type: array
+          items:
+            "$ref": "#/components/schemas/News"
+          nullable: true
+        utente:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Utente"
+          nullable: true
+      additionalProperties: false
+    CostDto:
+      type: object
+      properties:
+        date:
+          type: string
+          nullable: true
+        appTitle:
+          type: string
+          nullable: true
+        campaignName:
+          type: string
+          nullable: true
+        campaignId:
+          type: string
+          nullable: true
+        sitePublicId:
+          type: string
+          nullable: true
+        os:
+          type: string
+          nullable: true
+        impressions:
+          type: integer
+          format: int64
+        clicks:
+          type: integer
+          format: int64
+        installs:
+          type: integer
+          format: int64
+        geo:
+          type: string
+          nullable: true
+        cost:
+          type: number
+          format: double
+        currency:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CostReportReminderHistory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        reportId:
+          type: integer
+          format: int32
+          nullable: true
+        note:
+          type: string
+          nullable: true
+        dateTime:
+          type: string
+          format: date-time
+          nullable: true
+        remindDate:
+          type: string
+          format: date-time
+          nullable: true
+        report:
+          "$ref": "#/components/schemas/MonthlyCostReport"
+      additionalProperties: false
+    Country:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        codice:
+          type: string
+          nullable: true
+        descrizione:
+          type: string
+          nullable: true
+        isEnabled:
+          type: boolean
+          nullable: true
+        fiscalZone:
+          type: string
+          nullable: true
+        billingInfo:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BillingInfo"
+          nullable: true
+        bundleGroupSettings:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleGroupSettings"
+          nullable: true
+        campaignInstallDetail:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignInstallDetail"
+          nullable: true
+        campaignsMetadata:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsMetadata"
+          nullable: true
+        news:
+          type: array
+          items:
+            "$ref": "#/components/schemas/News"
+          nullable: true
+        updates:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Updates"
+          nullable: true
+        updatesApplicazioniW10:
+          type: array
+          items:
+            "$ref": "#/components/schemas/UpdatesApplicazioniW10"
+          nullable: true
+        utente:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Utente"
+          nullable: true
+        campaign:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Campaign"
+          nullable: true
+        contentOfTheDay:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ContentOfTheDay"
+          nullable: true
+      additionalProperties: false
+    CreativePlaceholder:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        type:
+          type: string
+          nullable: true
+        text:
+          type: string
+          nullable: true
+        creativeId:
+          type: integer
+          format: int32
+          nullable: true
+        chiaveId:
+          type: integer
+          format: int32
+          nullable: true
+        chiave:
+          "$ref": "#/components/schemas/PlaceholderString"
+        creative:
+          "$ref": "#/components/schemas/ImageContentOfTheDay"
+      additionalProperties: false
+    Currency:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        symbol:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        billingInfo:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BillingInfo"
+          nullable: true
+        campaign:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Campaign"
+          nullable: true
+        campaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishers"
+          nullable: true
+        revolutAccount:
+          type: array
+          items:
+            "$ref": "#/components/schemas/RevolutAccount"
+          nullable: true
+      additionalProperties: false
+    EventType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        campaignConfiguredEvent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignConfiguredEvent"
+          nullable: true
+        publishersEvents:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PublishersEvents"
+          nullable: true
+      additionalProperties: false
+    FinanceDocument:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        amount:
+          type: number
+          format: double
+          nullable: true
+        token:
+          type: string
+          nullable: true
+        issuingDate:
+          type: string
+          format: date-time
+          nullable: true
+        billingInfoId:
+          type: integer
+          format: int32
+          nullable: true
+        note:
+          type: string
+          nullable: true
+        aggregateCount:
+          type: integer
+          format: int32
+          nullable: true
+        saldato:
+          type: boolean
+          nullable: true
+        ficId:
+          type: string
+          nullable: true
+        expirationDate:
+          type: string
+          format: date-time
+          nullable: true
+        numeroFattura:
+          type: string
+          nullable: true
+        billingInfo:
+          "$ref": "#/components/schemas/BillingInfo"
+        paymentIntent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PaymentIntent"
+          nullable: true
+        monthlyCostReport:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MonthlyCostReport"
+          nullable: true
+        monthlyRevenueReport:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MonthlyRevenueReport"
+          nullable: true
+      additionalProperties: false
+    ImageContentOfTheDay:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        contentOfTheDayId:
+          type: integer
+          format: int32
+          nullable: true
+        url:
+          type: string
+          nullable: true
+        linguaId:
+          type: integer
+          format: int32
+          nullable: true
+        featured:
+          type: boolean
+        height:
+          type: integer
+          format: int32
+          nullable: true
+        width:
+          type: integer
+          format: int32
+          nullable: true
+        imageTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        landingPageTemplateId:
+          type: integer
+          format: int32
+          nullable: true
+        size:
+          type: integer
+          format: int32
+          nullable: true
+        contentOfTheDay:
+          "$ref": "#/components/schemas/ContentOfTheDay"
+        imageType:
+          "$ref": "#/components/schemas/ImageType"
+        landingPageTemplate:
+          "$ref": "#/components/schemas/LandingPageTemplate"
+        lingua:
+          "$ref": "#/components/schemas/Lingua"
+        campaignsImages:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsImages"
+          nullable: true
+        creativePlaceholder:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CreativePlaceholder"
+          nullable: true
+      additionalProperties: false
+    ImageType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        imageContentOfTheDay:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ImageContentOfTheDay"
+          nullable: true
+      additionalProperties: false
+    KnownUrl:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        domain:
+          type: string
+          nullable: true
+        imageUrl:
+          type: string
+          nullable: true
+        isTrusted:
+          type: boolean
+          nullable: true
+        testLink:
+          type: array
+          items:
+            "$ref": "#/components/schemas/TestLink"
+          nullable: true
+      additionalProperties: false
+    KpicampaignsPublishersStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        kpiruleId:
+          type: integer
+          format: int32
+          nullable: true
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        campaignStatusId:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        kpirule:
+          "$ref": "#/components/schemas/Kpirule"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    Kpicondition:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        kpiruleId:
+          type: integer
+          format: int32
+          nullable: true
+        metricId:
+          type: integer
+          format: int32
+          nullable: true
+        operator:
+          type: string
+          nullable: true
+        thresholdMin:
+          type: number
+          format: double
+          nullable: true
+        thresholdMax:
+          type: number
+          format: double
+          nullable: true
+        timeWindowId:
+          type: integer
+          format: int32
+          nullable: true
+        kpirule:
+          "$ref": "#/components/schemas/Kpirule"
+        metric:
+          "$ref": "#/components/schemas/StatMetric"
+      additionalProperties: false
+    Kpirule:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        weight:
+          type: number
+          format: double
+          nullable: true
+        priorityId:
+          type: integer
+          format: int32
+          nullable: true
+        kpicampaignsPublishersStatus:
+          type: array
+          items:
+            "$ref": "#/components/schemas/KpicampaignsPublishersStatus"
+          nullable: true
+        kpicondition:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Kpicondition"
+          nullable: true
+      additionalProperties: false
+    LandingPageCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        landingPageTemplate:
+          type: array
+          items:
+            "$ref": "#/components/schemas/LandingPageTemplate"
+          nullable: true
+      additionalProperties: false
+    LandingPageTemplate:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        categoryId:
+          type: integer
+          format: int32
+          nullable: true
+        html:
+          type: string
+          nullable: true
+        category:
+          "$ref": "#/components/schemas/LandingPageCategory"
+        imageContentOfTheDay:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ImageContentOfTheDay"
+          nullable: true
+        templatesPlaceholderStrings:
+          type: array
+          items:
+            "$ref": "#/components/schemas/TemplatesPlaceholderStrings"
+          nullable: true
+      additionalProperties: false
+    Lingua:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        codice:
+          type: string
+          nullable: true
+        descrizione:
+          type: string
+          nullable: true
+        billingInfo:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BillingInfo"
+          nullable: true
+        campaign:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Campaign"
+          nullable: true
+        campaignsImages:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsImages"
+          nullable: true
+        campaignsMetadata:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsMetadata"
+          nullable: true
+        imageContentOfTheDay:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ImageContentOfTheDay"
+          nullable: true
+        metadataContentOfTheDay:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MetadataContentOfTheDay"
+          nullable: true
+        news:
+          type: array
+          items:
+            "$ref": "#/components/schemas/News"
+          nullable: true
+        utente:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Utente"
+          nullable: true
+      additionalProperties: false
+    LogInvoiceCall:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        reportId:
+          type: integer
+          format: int32
+          nullable: true
+        report:
+          "$ref": "#/components/schemas/MonthlyCostReport"
+      additionalProperties: false
+    LogReportEmail:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        notificationDate:
+          type: string
+          format: date-time
+          nullable: true
+        reportId:
+          type: integer
+          format: int32
+          nullable: true
+        type:
+          type: integer
+          format: int32
+          nullable: true
+        report:
+          "$ref": "#/components/schemas/MonthlyRevenueReport"
+      additionalProperties: false
+    Menu:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        path:
+          type: string
+          nullable: true
+        parentId:
+          type: integer
+          format: int32
+          nullable: true
+        visible:
+          type: boolean
+          nullable: true
+        ordine:
+          type: integer
+          format: int32
+          nullable: true
+        aspNetRole:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetRoles"
+          nullable: true
+      additionalProperties: false
+    MetadataContentOfTheDay:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        contetOfTheDayId:
+          type: integer
+          format: int32
+          nullable: true
+        descrizione:
+          type: string
+          nullable: true
+        linguaId:
+          type: integer
+          format: int32
+          nullable: true
+        prezzo:
+          type: number
+          format: double
+        prezzoVecchio:
+          type: number
+          format: double
+        rate:
+          type: number
+          format: double
+        title:
+          type: string
+          nullable: true
+        trackingUrl:
+          type: string
+          nullable: true
+        trackingPixelUrl:
+          type: string
+          nullable: true
+        categoria:
+          type: string
+          nullable: true
+        pushNotificationTitle:
+          type: string
+          nullable: true
+        pushNotificationMessage:
+          type: string
+          nullable: true
+        actionText:
+          type: string
+          nullable: true
+        htmlView:
+          type: string
+          nullable: true
+        subtitle:
+          type: string
+          nullable: true
+        package:
+          type: string
+          nullable: true
+        developerName:
+          type: string
+          nullable: true
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+        endDate:
+          type: string
+          format: date-time
+          nullable: true
+        contetOfTheDay:
+          "$ref": "#/components/schemas/ContentOfTheDay"
+        lingua:
+          "$ref": "#/components/schemas/Lingua"
+        campaignsMetadata:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsMetadata"
+          nullable: true
+      additionalProperties: false
+    MonthlyCostReport:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        calculatedAmount:
+          type: number
+          format: double
+          nullable: true
+        scrub:
+          type: number
+          format: double
+          nullable: true
+        adjustment:
+          type: number
+          format: double
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        contoId:
+          type: integer
+          format: int32
+          nullable: true
+        paymentDate:
+          type: string
+          format: date-time
+          nullable: true
+        total:
+          type: number
+          format: double
+          nullable: true
+        referenceDate:
+          type: string
+          format: date-time
+          nullable: true
+        acquistoId:
+          type: string
+          nullable: true
+        scrubMyAppFree:
+          type: number
+          format: double
+          nullable: true
+        amountMyAppFree:
+          type: number
+          format: double
+          nullable: true
+        note:
+          type: string
+          nullable: true
+        reminderDate:
+          type: string
+          format: date-time
+          nullable: true
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+        costReportReminderHistory:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CostReportReminderHistory"
+          nullable: true
+        logInvoiceCall:
+          type: array
+          items:
+            "$ref": "#/components/schemas/LogInvoiceCall"
+          nullable: true
+        monthlyCostReportNote:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MonthlyCostReportNote"
+          nullable: true
+        paymentIntent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PaymentIntent"
+          nullable: true
+        financeDocument:
+          type: array
+          items:
+            "$ref": "#/components/schemas/FinanceDocument"
+          nullable: true
+      additionalProperties: false
+    MonthlyCostReportNote:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        userId:
+          type: string
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        reportId:
+          type: integer
+          format: int32
+          nullable: true
+        noteText:
+          type: string
+          nullable: true
+        report:
+          "$ref": "#/components/schemas/MonthlyCostReport"
+      additionalProperties: false
+    MonthlyRevenueReport:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        advertiserId:
+          type: integer
+          format: int32
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        calculatedAmount:
+          type: number
+          format: double
+          nullable: true
+        calculatedDeduction:
+          type: number
+          format: double
+          nullable: true
+        manualAmount:
+          type: number
+          format: double
+          nullable: true
+        manualDeduction:
+          type: number
+          format: double
+          nullable: true
+        paymentAccount:
+          type: integer
+          format: int32
+          nullable: true
+        adjustment:
+          type: number
+          format: double
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        insertionDate:
+          type: string
+          format: date-time
+          nullable: true
+        invoiceDate:
+          type: string
+          format: date-time
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        paymentDate:
+          type: string
+          format: date-time
+          nullable: true
+        totalAmount:
+          type: number
+          format: double
+          nullable: true
+        invoiceToken:
+          type: string
+          nullable: true
+        proformaToken:
+          type: string
+          nullable: true
+        note:
+          type: string
+          nullable: true
+        competenzaFiscale:
+          type: string
+          format: date-time
+          nullable: true
+        billed:
+          type: number
+          format: double
+          nullable: true
+        reminderDate:
+          type: string
+          format: date-time
+          nullable: true
+        advertiser:
+          "$ref": "#/components/schemas/Advertiser"
+        logReportEmail:
+          type: array
+          items:
+            "$ref": "#/components/schemas/LogReportEmail"
+          nullable: true
+        monthlyRevenueReportNote:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MonthlyRevenueReportNote"
+          nullable: true
+        paymentIntentNavigation:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PaymentIntent"
+          nullable: true
+        revenueReportReminderHistory:
+          type: array
+          items:
+            "$ref": "#/components/schemas/RevenueReportReminderHistory"
+          nullable: true
+        financeDocument:
+          type: array
+          items:
+            "$ref": "#/components/schemas/FinanceDocument"
+          nullable: true
+        paymentIntent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PaymentIntent"
+          nullable: true
+      additionalProperties: false
+    MonthlyRevenueReportNote:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        userId:
+          type: string
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        reportId:
+          type: integer
+          format: int32
+          nullable: true
+        noteText:
+          type: string
+          nullable: true
+        report:
+          "$ref": "#/components/schemas/MonthlyRevenueReport"
+      additionalProperties: false
+    Mulist:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        typeId:
+          type: integer
+          format: int32
+          nullable: true
+        type:
+          "$ref": "#/components/schemas/MulistType"
+        mulistSetting:
+          "$ref": "#/components/schemas/MulistSetting"
+        mulistCampaigns:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MulistCampaigns"
+          nullable: true
+        mulistItem:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MulistItem"
+          nullable: true
+        tracker:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Tracker"
+          nullable: true
+      additionalProperties: false
+    MulistCampagnsType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        mulistCampaigns:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MulistCampaigns"
+          nullable: true
+      additionalProperties: false
+    MulistCampaigns:
+      type: object
+      properties:
+        listId:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+        typeId:
+          type: integer
+          format: int32
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        list:
+          "$ref": "#/components/schemas/Mulist"
+        type:
+          "$ref": "#/components/schemas/MulistCampagnsType"
+      additionalProperties: false
+    MulistItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        value:
+          type: string
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        listId:
+          type: integer
+          format: int32
+          nullable: true
+        list:
+          "$ref": "#/components/schemas/Mulist"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    MulistSetting:
+      type: object
+      properties:
+        listId:
+          type: integer
+          format: int32
+        isActive:
+          type: boolean
+          nullable: true
+        insertDate:
+          type: string
+          format: date-time
+          nullable: true
+        aspNetUserId:
+          type: string
+          nullable: true
+        lastUpdateDate:
+          type: string
+          format: date-time
+          nullable: true
+        lastUserId:
+          type: string
+          nullable: true
+        aspNetUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        lastUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        list:
+          "$ref": "#/components/schemas/Mulist"
+      additionalProperties: false
+    MulistType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        mulist:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Mulist"
+          nullable: true
+      additionalProperties: false
+    News:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        title:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        urlImage:
+          type: string
+          nullable: true
+        link:
+          type: string
+          nullable: true
+        action:
+          type: string
+          nullable: true
+        linguaId:
+          type: integer
+          format: int32
+          nullable: true
+        countryId:
+          type: integer
+          format: int32
+          nullable: true
+        minVersion:
+          type: integer
+          format: int32
+          nullable: true
+        maxVersion:
+          type: integer
+          format: int32
+          nullable: true
+        daData:
+          type: string
+          format: date-time
+          nullable: true
+        adata:
+          type: string
+          format: date-time
+          nullable: true
+        contentTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        contentType:
+          "$ref": "#/components/schemas/ContentType"
+        country:
+          "$ref": "#/components/schemas/Country"
+        lingua:
+          "$ref": "#/components/schemas/Lingua"
+      additionalProperties: false
+    PaymentIntent:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        status:
+          type: string
+          nullable: true
+        invoiceId:
+          type: string
+          nullable: true
+        billingInfoId:
+          type: integer
+          format: int32
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        amount:
+          type: number
+          format: double
+          nullable: true
+        aspNetUserId:
+          type: string
+          nullable: true
+        intentId:
+          type: string
+          nullable: true
+        reportId:
+          type: integer
+          format: int32
+          nullable: true
+        financeDocumentId:
+          type: integer
+          format: int32
+          nullable: true
+        costReportId:
+          type: integer
+          format: int32
+          nullable: true
+        contoDiSaldo:
+          type: string
+          nullable: true
+        aspNetUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        billingInfo:
+          "$ref": "#/components/schemas/BillingInfo"
+        costReport:
+          "$ref": "#/components/schemas/MonthlyCostReport"
+        financeDocument:
+          "$ref": "#/components/schemas/FinanceDocument"
+        report:
+          "$ref": "#/components/schemas/MonthlyRevenueReport"
+        monthlyRevenueReport:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MonthlyRevenueReport"
+          nullable: true
+      additionalProperties: false
+    PaymentType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        balance:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Balance"
+          nullable: true
+      additionalProperties: false
+    PipelineAction:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        jsonOptionsSchema:
+          type: string
+          nullable: true
+        activityName:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        automationPipelinesActions:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AutomationPipelinesActions"
+          nullable: true
+      additionalProperties: false
+    PipelinesCampaignsPublishers:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        automationPipelineId:
+          type: integer
+          format: int32
+          nullable: true
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        automationPipeline:
+          "$ref": "#/components/schemas/AutomationPipeline"
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    PlaceholderString:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        chiave:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        creativePlaceholder:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CreativePlaceholder"
+          nullable: true
+        templatesPlaceholderStrings:
+          type: array
+          items:
+            "$ref": "#/components/schemas/TemplatesPlaceholderStrings"
+          nullable: true
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: {}
+    Publisher:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        website:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        postbackUrl:
+          type: string
+          nullable: true
+        billingInfoId:
+          type: integer
+          format: int32
+          nullable: true
+        commissionFee:
+          type: integer
+          format: int32
+          nullable: true
+        allOfferEnabled:
+          type: boolean
+          nullable: true
+        allOfferIncentEnabled:
+          type: boolean
+          nullable: true
+        canTrackImpression:
+          type: boolean
+          nullable: true
+        maxCr:
+          type: number
+          format: double
+          nullable: true
+        firstDayTti:
+          type: integer
+          format: int32
+          nullable: true
+        maxIdm:
+          type: integer
+          format: int32
+          nullable: true
+        hideRedirect:
+          type: boolean
+          nullable: true
+        attributionWindow:
+          type: integer
+          format: int32
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        lastUserId:
+          type: string
+          nullable: true
+        accountManagerId:
+          type: string
+          nullable: true
+        note:
+          type: string
+          nullable: true
+        affidability:
+          type: integer
+          format: int32
+          nullable: true
+        redirectType:
+          type: integer
+          format: int32
+          nullable: true
+        postbackEventUrl:
+          type: string
+          nullable: true
+        minCr:
+          type: number
+          format: double
+          nullable: true
+        accountManager:
+          "$ref": "#/components/schemas/AspNetUsers"
+        billingInfo:
+          "$ref": "#/components/schemas/BillingInfo"
+        lastUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        affsiteBlacklist:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AffsiteBlacklist"
+          nullable: true
+        aspNetUsers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AspNetUsers"
+          nullable: true
+        bundleGroupCampaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleGroupCampaignsPublishers"
+          nullable: true
+        bundleGroupSettings:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BundleGroupSettings"
+          nullable: true
+        campaignAnalytic:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignAnalytic"
+          nullable: true
+        campaignConversionEvent:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignConversionEvent"
+          nullable: true
+        campaignInstall:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignInstall"
+          nullable: true
+        campaignMinuteAnalytic:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignMinuteAnalytic"
+          nullable: true
+        campaignsDailyClicks:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsDailyClicks"
+          nullable: true
+        campaignsDailyEvents:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsDailyEvents"
+          nullable: true
+        campaignsDailyImpressions:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsDailyImpressions"
+          nullable: true
+        campaignsDailyRevenueCost:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsDailyRevenueCost"
+          nullable: true
+        campaignsMonthlyPublisherReport:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsMonthlyPublisherReport"
+          nullable: true
+        campaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishers"
+          nullable: true
+        campaignsPublishersBudget:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishersBudget"
+          nullable: true
+        campaignsPublishersCap:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishersCap"
+          nullable: true
+        campaignsPublishersDayparting:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishersDayparting"
+          nullable: true
+        campaignsPublishersHourlyRevenueCost:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishersHourlyRevenueCost"
+          nullable: true
+        campaignsPublishersSettings:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsPublishersSettings"
+          nullable: true
+        kpicampaignsPublishersStatus:
+          type: array
+          items:
+            "$ref": "#/components/schemas/KpicampaignsPublishersStatus"
+          nullable: true
+        monthlyCostReport:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MonthlyCostReport"
+          nullable: true
+        mulistItem:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MulistItem"
+          nullable: true
+        pipelinesCampaignsPublishers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PipelinesCampaignsPublishers"
+          nullable: true
+        publisherSettings:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PublisherSettings"
+          nullable: true
+        publisherSite:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PublisherSite"
+          nullable: true
+        publishersEvents:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PublishersEvents"
+          nullable: true
+        advertiser:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Advertiser"
+          nullable: true
+        billingInfoNavigation:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BillingInfo"
+          nullable: true
+        tag:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Tag"
+          nullable: true
+      additionalProperties: false
+    PublisherSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        postbackBody:
+          type: string
+          nullable: true
+        postbackEventBody:
+          type: string
+          nullable: true
+        shouldIgnoreCost:
+          type: boolean
+          nullable: true
+        enableCpcCpm:
+          type: boolean
+          nullable: true
+        campaignStatisticsViewId:
+          type: integer
+          format: int32
+          nullable: true
+        priority:
+          type: integer
+          format: int32
+          nullable: true
+        attributionWindowIgnoreStatus:
+          type: boolean
+          nullable: true
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+      additionalProperties: false
+    PublishersEvents:
+      type: object
+      properties:
+        publisherId:
+          type: integer
+          format: int32
+        eventId:
+          type: integer
+          format: int32
+        postbackUrlDeprecated:
+          type: string
+          nullable: true
+        amountPublisher:
+          type: number
+          format: double
+          nullable: true
+        isActive:
+          type: integer
+          format: int32
+          nullable: true
+        postbackUrl:
+          type: string
+          nullable: true
+        typeId:
+          type: integer
+          format: int32
+          nullable: true
+        postbackBody:
+          type: string
+          nullable: true
+        postbackDelayInSeconds:
+          type: integer
+          format: int32
+          nullable: true
+        event:
+          "$ref": "#/components/schemas/CampaignConfiguredEvent"
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+        type:
+          "$ref": "#/components/schemas/EventType"
+      additionalProperties: false
+    PublisherSite:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        siteId:
+          type: string
+          nullable: true
+        categoryId:
+          type: integer
+          format: int32
+          nullable: true
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        publisher:
+          "$ref": "#/components/schemas/Publisher"
+        publisherSiteAdUnit:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PublisherSiteAdUnit"
+          nullable: true
+      additionalProperties: false
+    PublisherSiteAdUnit:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        publisherSiteId:
+          type: integer
+          format: int32
+          nullable: true
+        typeId:
+          type: integer
+          format: int32
+          nullable: true
+        height:
+          type: integer
+          format: int32
+          nullable: true
+        width:
+          type: integer
+          format: int32
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        publisherSite:
+          "$ref": "#/components/schemas/PublisherSite"
+        type:
+          "$ref": "#/components/schemas/PublisherSiteAdUnitType"
+      additionalProperties: false
+    PublisherSiteAdUnitType:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        publisherSiteAdUnit:
+          type: array
+          items:
+            "$ref": "#/components/schemas/PublisherSiteAdUnit"
+          nullable: true
+      additionalProperties: false
+    PublishersOptimizerView:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        columns:
+          type: string
+          nullable: true
+        insertDate:
+          type: string
+          format: date-time
+          nullable: true
+        creatorId:
+          type: string
+          nullable: true
+        creator:
+          "$ref": "#/components/schemas/AspNetUsers"
+      additionalProperties: false
+    ReportAdminStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        code:
+          type: string
+          nullable: true
+        campaignsMonthlyPublisherReport:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsMonthlyPublisherReport"
+          nullable: true
+      additionalProperties: false
+    ReportCampaignDto:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        package:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        os:
+          type: string
+          nullable: true
+        country:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ReportCreativeDto:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ReportEventDto:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        count:
+          type: integer
+          format: int64
+      additionalProperties: false
+    ReportProof:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        publisherId:
+          type: integer
+          format: int32
+          nullable: true
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        blobUrl:
+          type: string
+          nullable: true
+        reportId:
+          type: integer
+          format: int32
+          nullable: true
+        report:
+          "$ref": "#/components/schemas/CampaignsMonthlyPublisherReport"
+      additionalProperties: false
+    ReportPublisherStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        code:
+          type: string
+          nullable: true
+        campaignsMonthlyPublisherReport:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CampaignsMonthlyPublisherReport"
+          nullable: true
+      additionalProperties: false
+    RevenueReportReminderHistory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        reportId:
+          type: integer
+          format: int32
+          nullable: true
+        note:
+          type: string
+          nullable: true
+        dateTime:
+          type: string
+          format: date-time
+          nullable: true
+        remindDate:
+          type: string
+          format: date-time
+          nullable: true
+        completed:
+          type: boolean
+          nullable: true
+        report:
+          "$ref": "#/components/schemas/MonthlyRevenueReport"
+      additionalProperties: false
+    RevolutAccount:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        accountId:
+          type: string
+          nullable: true
+        currencyId:
+          type: integer
+          format: int32
+          nullable: true
+        currency:
+          "$ref": "#/components/schemas/Currency"
+      additionalProperties: false
+    S2sorder:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        amount:
+          type: integer
+          format: int32
+          nullable: true
+        groupId:
+          type: integer
+          format: int32
+          nullable: true
+        typeId:
+          type: integer
+          format: int32
+          nullable: true
+        url:
+          type: string
+          nullable: true
+        startDate:
+          type: string
+          format: date-time
+          nullable: true
+        endDate:
+          type: string
+          format: date-time
+          nullable: true
+        cron:
+          type: string
+          nullable: true
+        customParams:
+          type: string
+          nullable: true
+        lastEnqueueDate:
+          type: string
+          format: date-time
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        lastUserId:
+          type: string
+          nullable: true
+        language:
+          type: string
+          nullable: true
+        nextExecutionDate:
+          type: string
+          format: date-time
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        group:
+          "$ref": "#/components/schemas/BundleGroup"
+      additionalProperties: false
+    StatMetric:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        metricA:
+          type: string
+          nullable: true
+        metricB:
+          type: string
+          nullable: true
+        alias:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        metricAconfiguredEventId:
+          type: integer
+          format: int32
+          nullable: true
+        metricBconfiguredEventId:
+          type: integer
+          format: int32
+          nullable: true
+        metricAconfiguredEvent:
+          "$ref": "#/components/schemas/CampaignConfiguredEvent"
+        metricBconfiguredEvent:
+          "$ref": "#/components/schemas/CampaignConfiguredEvent"
+        kpicondition:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Kpicondition"
+          nullable: true
+      additionalProperties: false
+    StatsDto:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        revenue:
+          type: number
+          format: double
+          nullable: true
+        fraud:
+          type: integer
+          format: int64
+          nullable: true
+        cost:
+          type: number
+          format: double
+          nullable: true
+        conversions:
+          type: integer
+          format: int64
+        events:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ReportEventDto"
+          nullable: true
+        scrub:
+          type: integer
+          format: int64
+        scrubPublisher:
+          type: integer
+          format: int64
+        impressions:
+          type: integer
+          format: int64
+        clicks:
+          type: integer
+          format: int64
+        invalidClicks:
+          type: integer
+          format: int64
+        installs:
+          type: integer
+          format: int64
+          nullable: true
+        tti:
+          type: integer
+          format: int64
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/ReportCampaignDto"
+        creative:
+          "$ref": "#/components/schemas/ReportCreativeDto"
+      additionalProperties: false
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        code:
+          type: string
+          nullable: true
+        advertiser:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Advertiser"
+          nullable: true
+        campaign:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Campaign"
+          nullable: true
+        publisher:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Publisher"
+          nullable: true
+      additionalProperties: false
+    TemplatesPlaceholderStrings:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        landingPageTemplateId:
+          type: integer
+          format: int32
+          nullable: true
+        placeholderStringId:
+          type: integer
+          format: int32
+          nullable: true
+        landingPageTemplate:
+          "$ref": "#/components/schemas/LandingPageTemplate"
+        placeholderString:
+          "$ref": "#/components/schemas/PlaceholderString"
+      additionalProperties: false
+    TestLink:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        url:
+          type: string
+          nullable: true
+        campaignId:
+          type: integer
+          format: int32
+          nullable: true
+        userAgent:
+          type: string
+          nullable: true
+        redirectLoop:
+          type: string
+          nullable: true
+        valid:
+          type: boolean
+          nullable: true
+        datetime:
+          type: string
+          format: date-time
+          nullable: true
+        redirectCount:
+          type: integer
+          format: int32
+          nullable: true
+        agenciesCount:
+          type: integer
+          format: int32
+          nullable: true
+        validCount:
+          type: integer
+          format: int32
+          nullable: true
+        errorCount:
+          type: integer
+          format: int32
+          nullable: true
+        hasKnownTracker:
+          type: boolean
+          nullable: true
+        enquedDate:
+          type: string
+          format: date-time
+          nullable: true
+        lastKnownTrackerId:
+          type: integer
+          format: int32
+          nullable: true
+        lastKnownTrackerUrl:
+          type: string
+          nullable: true
+        campaign:
+          "$ref": "#/components/schemas/Campaign"
+        lastKnownTracker:
+          "$ref": "#/components/schemas/KnownUrl"
+      additionalProperties: false
+    Tracker:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        clickParamUrl:
+          type: string
+          nullable: true
+        impressionParamUrl:
+          type: string
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        lastUserId:
+          type: string
+          nullable: true
+        insertDate:
+          type: string
+          format: date-time
+          nullable: true
+        postbackUrl:
+          type: string
+          nullable: true
+        postbackBody:
+          type: string
+          nullable: true
+        lastUser:
+          "$ref": "#/components/schemas/AspNetUsers"
+        campaign:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Campaign"
+          nullable: true
+        list:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Mulist"
+          nullable: true
+      additionalProperties: false
+    Updates:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        appId:
+          type: integer
+          format: int32
+        data:
+          type: string
+          format: date-time
+        prezzo:
+          type: number
+          format: double
+          nullable: true
+        prezzoVecchio:
+          type: number
+          format: double
+          nullable: true
+        version:
+          type: string
+          nullable: true
+        currency:
+          type: string
+          nullable: true
+        countryId:
+          type: integer
+          format: int32
+          nullable: true
+        ratingCount:
+          type: integer
+          format: int32
+          nullable: true
+        ratingAverage:
+          type: number
+          format: double
+          nullable: true
+        app:
+          "$ref": "#/components/schemas/Applicazioni"
+        country:
+          "$ref": "#/components/schemas/Country"
+      additionalProperties: false
+    UpdatesApplicazioniW10:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        appId:
+          type: integer
+          format: int32
+        data:
+          type: string
+          format: date-time
+        prezzo:
+          type: number
+          format: double
+          nullable: true
+        prezzoVecchio:
+          type: number
+          format: double
+          nullable: true
+        version:
+          type: string
+          nullable: true
+        currency:
+          type: string
+          nullable: true
+        countryId:
+          type: integer
+          format: int32
+          nullable: true
+        ratingCount:
+          type: integer
+          format: int32
+          nullable: true
+        ratingAverage:
+          type: number
+          format: double
+          nullable: true
+        app:
+          "$ref": "#/components/schemas/ApplicazioniW10"
+        country:
+          "$ref": "#/components/schemas/Country"
+      additionalProperties: false
+    Utente:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        email:
+          type: string
+          nullable: true
+        password:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        surname:
+          type: string
+          nullable: true
+        sex:
+          type: integer
+          format: int32
+          nullable: true
+        location:
+          type: string
+          nullable: true
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+        birthdate:
+          type: string
+          format: date-time
+          nullable: true
+        facebookId:
+          type: string
+          nullable: true
+        advertiserId:
+          type: string
+          nullable: true
+        insertDate:
+          type: string
+          format: date-time
+          nullable: true
+        updateDate:
+          type: string
+          format: date-time
+          nullable: true
+        activation:
+          type: string
+          nullable: true
+        joomlaId:
+          type: integer
+          format: int32
+          nullable: true
+        contentTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        countryId:
+          type: integer
+          format: int32
+          nullable: true
+        linguaId:
+          type: integer
+          format: int32
+          nullable: true
+        reset:
+          type: string
+          nullable: true
+        googleId:
+          type: string
+          nullable: true
+        contentType:
+          "$ref": "#/components/schemas/ContentType"
+        country:
+          "$ref": "#/components/schemas/Country"
+        lingua:
+          "$ref": "#/components/schemas/Lingua"
+      additionalProperties: false
+  securitySchemes:
+    ClientKey:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+  - ClientKey: []

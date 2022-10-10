@@ -10,3 +10,6 @@
 src/service/api
 
 yarn-error.log
+
+keen_v3/tools/node_modules
+keen_v3/demo1/dist
