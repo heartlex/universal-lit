@@ -116,6 +116,17 @@ This command deletes the api folder and regenerate it. The generated clients use
 Inside the **base-component** There's an example on how to use them.
 
 
+## Keen theme
+In this project we use [this](https://preview.keenthemes.com/html/keen/docs/getting-started/build/gulp) bootstrap theme.
+To compile follow the steps in the previous link.
+To use the results it's necessary to
+
+• Import style.bundle.css and plugins.bundle.css
+
+• Import scripts.bundle.js and plugins.bundle.js
+
+from the **dist folder inside keen_v3/demo1** inside the html file which will serve the lit components
+
 ## Build the project
 
 To build the bundle for dev purpose:
@@ -168,4 +179,9 @@ TODO
 To simplify the management of the dependencies the resulting bundle provides the web components inside dist/js/main.js and
 the style inside dist/css/index.css.
 
-Bootstrap JS and its dep Popper need to be imported separately.
+To use Keen styles and components its necessary to import them in the master page which requires them.
+There are 4 main files (2 couples of css and js) for general purpose and single couple of file (css+js) for components.
+ie to use full calendar component:
+
+<link href="../keen_v3/demo1/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+<script src="../keen_v3/demo1/dist/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
